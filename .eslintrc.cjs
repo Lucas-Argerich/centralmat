@@ -21,6 +21,20 @@ module.exports = {
           'never'
         ]
       }
+    },
+    {
+      files: ['**/*.astro/*.js', '*.astro/*.js'],
+      extends: ['standard-with-typescript'],
+      env: {
+        browser: true,
+        es2020: true
+      },
+      parserOptions: {
+        sourceType: 'module',
+        parser: '@typescript-eslint/parser'
+      },
+      rules: {
+      }
     }
   ],
   parserOptions: {
