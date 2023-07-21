@@ -2,8 +2,12 @@
 ---
 
 <header>
-  <img src="/logo1.png" alt="Logo de la marca CentralMat">
+  <img class="logo" src="/images/logo1.png" alt="Logo de la marca CentralMat" />
+  <button class="hamburger" aria-label="Abrir menú de navegación">
+    <img src="/icons/hamburger.svg" alt="icono de menú desplegable" aria-hidden="true">
+  </button>
   <nav>
+    <img src="/images/logo2.png" alt="Logo de la marca CentralMat">
     <ul>
       <li><a href="/">INICIO</a></li>
       <li><a href="/productos">PRODUCTOS</a></li>
@@ -11,23 +15,36 @@
       <li><a href="/nosotros">NOSOTROS</a></li>
       <li><a href="/contacto">CONTACTO</a></li>
     </ul>
+    <button class="close" aria-label="Cerrar menú de navegación">
+      <img src="/icons/cross.svg" alt="icono de cerrar menú desplegable" aria-hidden="true">
+    </button>
   </nav>
 </header>
 
 <style>
   header {
     height: 62px;
-    overflow: hidden;
     box-shadow: 0 4px 8px 0 var(--shadow-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 25px;
     padding: 0 100px;
+    position: relative;
   }
 
-  img {
+  .logo {
     width: 200px;
+    height: 100%;
     object-fit: cover;
+  }
+
+  nav img {
+    display: none;
+  }
+
+  nav button {
+    display: none;
   }
 
   ul {
@@ -44,7 +61,7 @@
   }
 
   a::after {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 1px;
@@ -56,4 +73,82 @@
     opacity: 1;
     transition: 300ms;
   }
+
+  .hamburger {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 0 40px;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: var(--color-secondary);
+    }
+
+    nav {
+      width: 100%;
+      height: calc(100dvh - 62px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+      transform: translateY(100%);
+      background-color: var(--color-light);
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    nav img {
+      display: block;
+      height: 100px;
+      width: 145px;
+      object-fit: cover;
+    }
+
+    ul {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .close {
+      display: flex;
+    }
+
+    .close img {
+      width: auto;
+      height: auto;
+    }
+  }
 </style>
+
+<script>
+  const hamburger = document.querySelector(".hamburger")
+  const nav = document.querySelector("nav")
+  hamburger?.addEventListener("click", ()  => {
+    nav?.classList.contains("active") ? nav?.classList.remove("active") : nav?.classList.add("active")
+  })
+
+  const close = document.querySelector(".close")
+  close?.addEventListener("click", () => {
+    nav?.classList.contains("active") && nav.classList.remove("active")
+  })
+</script>
