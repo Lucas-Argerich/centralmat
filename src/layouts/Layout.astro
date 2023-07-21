@@ -6,15 +6,20 @@ interface Props {
 }
 
 const { title } = Astro.props
-
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="tbd..." />
-    <!-- add description -->
+    <meta
+      name="description"
+      content="Somos una empresa dedicada a la venta de materiales de construcción. Ofrecemos una amplia gama de productos de alta calidad para proyectos de construcción y remodelación. ¡Contáctanos para obtener los mejores materiales al mejor precio!"
+    />
+    <meta
+      name="keywords"
+      content="materiales de construcción, venta de materiales, construcción, remodelación, materiales de construcción en línea, productos de construcción, materiales de construcción de calidad, proveedor de materiales de construcción, suministros de construcción, ladrillos huecos, ladrillos HCCA, adhesivo para ladrillos, adhesivos para cerámicas, pastinas, revestimientos cementicios, revestimientos acrílicos, revoques monocapa, morteros proyectables, aditivos para morteros, impermeabilizantes"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -39,9 +44,9 @@ const { title } = Astro.props
     --color-secondary: #24448d;
     --color-secondary-light: #95ade4;
     --color-dark: #313131;
-    --color-dark-25: #3131313F;
+    --color-dark-25: #3131313f;
     --color-light: #ffffff;
-    --shadow-dark: #ADADAD3F;
+    --shadow-dark: #adadad3f;
     --font-size-title: 20px;
     --font-size-subtitle: 18px;
     --font-size-text: 14px;
