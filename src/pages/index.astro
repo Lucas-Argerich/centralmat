@@ -1,9 +1,38 @@
 ---
+import Hero from '@components/Hero.astro'
+import LinkButton from '@components/LinkButton.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
 <Layout title="CentralMat">
-  <main></main>
+  <main>
+    <Hero
+      height="435px"
+      src="/img/pexels-max-rahubovskiy-7045918.jpg"
+      placeholder="/img/pexels-max-rahubovskiy-7045918small.jpg"
+    >
+      <img src="/img/logo2.png" alt="Logo de la marca CentralMat" />
+      <h2>TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h2>
+      <LinkButton href="/productos">NUESTROS PRODUCTOS</LinkButton>
+    </Hero>
+  </main>
 </Layout>
 
-<style></style>
+<style>
+  img {
+    width: 160px;
+    height: 160px;
+    background-color: var(--color-light);
+    border-radius: 1000px;
+    box-shadow: inset 0px 0px 0px 8px var(--color-primary),
+      0px 4px 8px 0px var(--color-dark-25);
+  }
+
+  h2 {
+    color: var(--color-light);
+    font-size: var(--font-size-title);
+    text-align: center;
+    max-width: 400px;
+    font-weight: 700;
+  }
+</style>
