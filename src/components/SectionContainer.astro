@@ -1,0 +1,27 @@
+---
+interface Props {
+  gap?: string
+}
+
+const { gap } = Astro.props
+---
+
+<section style={gap !== undefined ? { gap } : {}}>
+  <slot />
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+    margin: 50px 0;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0 20px;
+    }
+  }
+</style>
