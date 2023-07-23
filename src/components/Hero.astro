@@ -11,7 +11,7 @@ const { src, placeholder = '', height } = Astro.props
 <section style={{ height }}>
   <div
     class="blurredBackground"
-    style={{ backgroundImage: 'url("' + placeholder + '")' }}
+    style={{ backgroundImage: 'url(' + placeholder + ')' }}
   >
     <img src={src} alt="imagen de fondo" aria-hidden="true" loading="lazy" />
     <span class="overlay"></span>
