@@ -37,7 +37,7 @@
     const slides = Object.values(slider.children) as HTMLElement[];
 
     function nextSlide() {
-      const currentSlideIndex = slides.findIndex((slide) => sliderContainer.scrollLeft < slide.offsetLeft);
+      const currentSlideIndex = slides.findIndex((slide) => Math.ceil(sliderContainer.scrollLeft) < slide.offsetLeft);
       const slideWidth = slides[currentSlideIndex]?.offsetLeft - sliderContainer.scrollLeft;
       if (sliderContainer.scrollLeft < 0) return
       if (sliderContainer.scrollLeft >= max) {
