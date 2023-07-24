@@ -90,3 +90,95 @@
     });
   });
 </script>
+---
+---
+
+<div class="sliderContainer">
+  <div class="slider">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .sliderContainer {
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .sliderContainer::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .slider {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+</style>
+
+<script>
+  const sliderContainers = document.querySelectorAll('.sliderContainer');
+  sliderContainers.forEach((sliderContainer) => {
+    const slider:HTMLDivElement = sliderContainer.querySelector('.slider')!;
+    const max = slider.scrollWidth - slider.clientWidth;
+
+    const slides = Object.values(slider.children) as HTMLElement[];
+
+    function nextSlide() {
+      const currentSlideIndex = slides.findIndex((slide) => sliderContainer.scrollLeft < slide.offsetLeft);
+      const slideWidth = slides[currentSlideIndex]?.offsetLeft - sliderContainer.scrollLeft;
+      if (sliderContainer.scrollLeft < 0) return
+      if (sliderContainer.scrollLeft >= max) {
+        sliderContainer.scrollLeft = 0;
+        return
+      };
+      sliderContainer.scrollLeft += slideWidth;
+    }
+
+    let intervalId: number;
+
+    function startAutoSlideShow() {
+      intervalId = setInterval(nextSlide, 3000); // Set the time (in milliseconds) for slide transition
+    }
+
+    function stopAutoSlideShow() {
+      clearInterval(intervalId);
+    }
+
+    startAutoSlideShow(); // Start the auto slide show
+
+    slider.addEventListener('mouseenter', stopAutoSlideShow); // Pause auto slide show when mouse is over the slider
+    slider.addEventListener('mouseleave', startAutoSlideShow);
+    slider.addEventListener('touchstart', stopAutoSlideShow); // Pause auto slide show when touch is over the slider
+    slider.addEventListener('touchend', startAutoSlideShow);
+
+    let isDragging = false;
+    let startPosX = 0;
+    let scrollLeft = 0;
+
+    slider.addEventListener('mousedown', (e) => {
+      e.preventDefault(); // Prevent text selection during dragging
+      isDragging = true;
+      startPosX = e.clientX;
+      scrollLeft = sliderContainer.scrollLeft;
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDragging = false;
+    });
+
+    slider.addEventListener('mousemove', (e: MouseEventInit) => {
+      if (!isDragging) return;
+      const moveX = e.clientX! - startPosX;
+      sliderContainer.scrollLeft = scrollLeft - moveX;
+    });
+  });
+</script>
