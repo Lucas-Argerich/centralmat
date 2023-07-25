@@ -6,7 +6,7 @@ interface Props {
 
 const { href, type = 'default' } = Astro.props
 ---
-<a href={href} class={type}>
+<a href={href} class={type} role="button">
   <slot />
 </a>
 

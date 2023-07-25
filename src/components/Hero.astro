@@ -12,6 +12,7 @@ const { src, placeholder = '', height } = Astro.props
   <div
     class="blurredBackground"
     style={{ backgroundImage: 'url(' + placeholder + ')' }}
+    aria-hidden="true"
   >
     <img src={src} alt="imagen de fondo" aria-hidden="true" loading="lazy" />
     <span class="overlay"></span>
