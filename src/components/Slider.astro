@@ -32,15 +32,13 @@
   const sliderContainers = document.querySelectorAll('.sliderContainer');
   sliderContainers.forEach((sliderContainer) => {
     const slider:HTMLDivElement = sliderContainer.querySelector('.slider')!;
-    const max = slider.scrollWidth - slider.clientWidth;
-
     const slides = Object.values(slider.children) as HTMLElement[];
 
     function nextSlide() {
       const currentSlideIndex = slides.findIndex((slide) => Math.ceil(sliderContainer.scrollLeft) < slide.offsetLeft);
       const slideWidth = slides[currentSlideIndex]?.offsetLeft - sliderContainer.scrollLeft;
       if (sliderContainer.scrollLeft < 0) return
-      if (sliderContainer.scrollLeft >= max) {
+      if (sliderContainer.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
         sliderContainer.scrollLeft = 0;
         return
       };
