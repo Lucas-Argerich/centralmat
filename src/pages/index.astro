@@ -3,6 +3,7 @@ import Hero from '@components/Hero.astro'
 import LinkButton from '@components/LinkButton.astro'
 import SectionContainer from '@components/SectionContainer.astro'
 import Slider from '@components/Slider.astro'
+import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
@@ -15,19 +16,14 @@ import Layout from '@layouts/Layout.astro'
     <img
       class="heroLogo"
       src="/img/logo2.png"
-      alt="Logo de la marca CentralMat"
+      alt="Logo de CentralMat"
     />
     <h1>TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
     <LinkButton href="/productos">NUESTROS PRODUCTOS</LinkButton>
   </Hero>
 
   <SectionContainer gap="50px">
-    <div class="title">
-      <h2>NUESTRAS MARCAS</h2>
-      <span
-        >Trabajamos con Marcas Líderes en la Industria de la Construcción</span
-      >
-    </div>
+    <Title subtitle="Trabajamos con Marcas Líderes en la Industria de la Construcción">NUESTRAS MARCAS</Title>
     <Slider>
       <img class="marca" src="/img/marcas/ceramicafanelli.png" alt="Logo de Ceramica Fanelli" />
       <img class="marca" src="/img/marcas/brimax.png" alt="Logo de Brimax" />
@@ -47,9 +43,7 @@ import Layout from '@layouts/Layout.astro'
   </SectionContainer>
 
   <SectionContainer gap="50px">
-    <div class="title">
-      <h2>CONOCE NUESTRA OFERTA DE SERVICIOS</h2>
-    </div>
+    <Title>CONOCE NUESTRA OFERTA DE SERVICIOS</Title>
     <div class="servicios">
       <div>
         <img
@@ -113,9 +107,7 @@ import Layout from '@layouts/Layout.astro'
   </section>
 
   <SectionContainer gap="50px">
-    <div class="title">
-      <h2>NUESTROS VALORES</h2>
-    </div>
+    <Title>NUESTROS VALORES</Title>
     <div class="valores">
       <div>
         <h3>Excelencia</h3>
@@ -196,24 +188,6 @@ import Layout from '@layouts/Layout.astro'
     text-align: center;
     max-width: 400px;
     font-weight: 700;
-  }
-
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .title h2 {
-    color: var(--color-secondary);
-    font-size: var(--text-size-title);
-    text-align: center;
-  }
-
-  .title span {
-    font-size: var(--font-size-subtitle);
-    text-align: center;
   }
 
   .marca {
