@@ -1,10 +1,168 @@
 ---
+import LinkButton from '@components/LinkButton.astro'
+import SectionContainer from '@components/SectionContainer.astro'
+import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
-<Layout title="CentralMat">
-  <main>
-  </main>
+<Layout title="Servicios - CentralMat">
+  <SectionContainer>
+    <div class="nuestrosServicios">
+      <div>
+        <Title>NUESTROS SERVICIOS</Title>
+        <span>
+          <p>
+            En nuestra empresa, ofrecemos una amplia gama de servicios
+            especializados para satisfacer las necesidades de nuestros clientes
+            en la industria de la construcción.
+          </p>
+          <p>
+            Nuestro equipo de profesionales altamente capacitados y
+            experimentados está listo para brindar soluciones eficientes y
+            personalizadas.
+          </p>
+        </span>
+        <span>
+          <p>
+            Nuestro éxito es proporcionar soluciones eficientes y personalizadas
+            para garantizar el suministro oportuno y confiable de materiales de
+            construcción a nuestros clientes.
+          </p>
+          <p>A continuación, se describen los servicios que ofrecemos:</p>
+        </span>
+      </div>
+      <img src="/img/logo2.png" alt="Logo de CentralMat" />
+    </div>
+    <div class="servicios">
+      <div>
+        <img
+          src="ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg"
+          alt="Icono de Logística Eficiente"
+        />
+        <h3>Logística Eficiente</h3>
+        <p>
+          Coordinamos y gestionamos toda la cadena de suministro de materiales
+          de construcción, asegurando una entrega oportuna y confiable en el
+          lugar de trabajo.
+        </p>
+      </div>
+      <div>
+        <img
+          src="ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg"
+          alt="Icono de Entrega Programada"
+        />
+        <h3>Entrega Programada</h3>
+        <p>
+          Ofrecemos entregas programadas según las necesidades de cada cliente,
+          cumpliendo con los plazos acordados y evitando retrasos en los
+          proyectos.
+        </p>
+      </div>
+      <div>
+        <img
+          src="ico/support-technology-svgrepo-com.svg"
+          alt="Icono de Asistencia Técnica Personalizada"
+        />
+        <h3>Asistencia Técnica Personalizada</h3>
+        <p>
+          Nuestro equipo de profesionales altamente capacitados brinda
+          asesoramiento técnico y soluciones personalizadas, ayudando a
+          seleccionar los materiales adecuados y resolviendo consultas y
+          problemas.
+        </p>
+      </div>
+      <div>
+        <img
+          src="ico/collaboration-svgrepo-com.svg"
+          alt="Icono de Logística Colaboración Efectiva"
+        />
+        <h3>Colaboración Efectiva</h3>
+        <p>
+          Trabajamos en estrecha colaboración con nuestros clientes,
+          involucrándonos desde las etapas iniciales del proyecto, estableciendo
+          planes de entrega y asegurando una ejecución exitosa.
+        </p>
+      </div>
+    </div>
+    <div class="buttonContainer">
+      <LinkButton href="/contacto" type="secondary">
+      Solicita mas Información
+      </LinkButton>
+    </div>
+  </SectionContainer>
 </Layout>
 
-<style></style>
+<style>
+  .nuestrosServicios {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nuestrosServicios div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .nuestrosServicios div p {
+    font-size: var(--font-size-text);
+  }
+
+  .nuestrosServicios img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    flex: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nuestrosServicios img {
+      display: none;
+    }
+  }
+
+  .servicios {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .servicios div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 0 0 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    .servicios div {
+      flex: 0 0 calc(50% - 40px);
+    }
+  }
+
+  .servicios img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+  }
+
+  .servicios h3 {
+    text-align: center;
+    font-size: var(--font-size-subtitle);
+    font-weight: 600;
+  }
+
+  .servicios p {
+    text-align: center;
+    font-size: var(--font-size-text);
+  }
+
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+</style>
