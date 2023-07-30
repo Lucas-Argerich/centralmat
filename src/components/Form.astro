@@ -1,0 +1,115 @@
+---
+---
+
+<form class="contactForm">
+  <div>
+    <input type="text" placeholder="Nombre Completo o Empresa" name="nombre"/>
+    <input type="email" placeholder="Correo Electrónico" name="correo"/>
+    <input type="tel" placeholder="Telefono de Contacto" name="telefono"/>
+  </div>
+  <textarea placeholder="Mensaje" name="mensaje"></textarea>
+  <p>
+    <span
+      ><img src="/ico/info-empty.svg" alt="Important information icon" /></span
+    >La información proporcionada se utilizará únicamente para fines de contacto
+    y no será compartida con terceros sin su consentimiento.
+  </p>
+  <button type="submit">Enviar</button>
+</form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  form div input {
+    background-color: var(--color-primary-light);
+    color: var(--color-dark);
+    border: none;
+    padding: 10px 20px;
+    flex: 1;
+    border-radius: 5px;
+    box-shadow: inset 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+  }
+
+  form textarea {
+    background-color: var(--color-primary-light);
+    color: var(--color-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    box-shadow: inset 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+    resize: vertical;
+    min-height: 150px;
+    max-height: 500px;
+  }
+
+  form button {
+    background: var(--color-primary);
+    color: var(--color-light);
+    margin-right: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+  }
+
+  form button:disabled {
+    background-color: var(--color-primary-light);
+  }
+
+  form p {
+    font-size: var(--font-size-text);
+    display: flex;
+    gap: 5px;
+  }
+
+  form p span {
+    display: flex;
+    align-items: center;
+    flex: 0;
+    height: fit-content;
+    margin-top: 2px;
+  }
+
+  form p span img {
+    width: 14px;
+  }
+</style>
+
+<script>
+  import emailjs from '@emailjs/browser';
+  emailjs.init('Z0tsUzdovu4bfIfB4');
+
+  document.querySelectorAll('form.contactForm').forEach((form) => {
+    const typedForm = form as HTMLFormElement;
+    const submitButton = typedForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    typedForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      submitButton.disabled = true;
+
+      try {
+        await emailjs.sendForm('service_kzkcira', 'template_n49p46o', typedForm);
+        await emailjs.sendForm('service_kzkcira', 'template_0ctitub', typedForm);
+        location.reload();
+      } catch(error) {
+        console.log('FAILED...', error);
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  });
+</script>

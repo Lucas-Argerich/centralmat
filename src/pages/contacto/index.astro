@@ -2,6 +2,7 @@
 import SectionContainer from '@components/SectionContainer.astro'
 import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
+import Form from '@components/Form.astro'
 ---
 
 <Layout title="Contacto - CentralMat">
@@ -23,18 +24,7 @@ import Layout from '@layouts/Layout.astro'
     <div class="formContainer">
       <h3>Formulario de Contacto</h3>
       <p>Completa el formulario y nos pondremos en contacto contigo lo mas rapido posible.</p>
-      <form>
-        <div>
-          <input type="text" placeholder="Nombre Completo">
-          <input type="email" placeholder="Correo Electrónico">
-          <input type="tel" placeholder="Telefono de Contacto">
-        </div>
-        <textarea placeholder="Mensaje"></textarea>
-        <p><span><img src="/ico/info-empty.svg" alt="Important information icon"></span>La información proporcionada se utilizará únicamente para fines de contacto y no será compartida con terceros sin su consentimiento.</p>
-        <button>
-          Enviar
-        </button>
-      </form>
+      <Form />
     </div>
   </SectionContainer>
 
@@ -77,65 +67,6 @@ import Layout from '@layouts/Layout.astro'
 
   .formContainer p {
     font-size: var(--font-size-text);
-    display: flex;
-    gap: 5px;
-  }
-
-  .formContainer p span {
-    display: flex;
-    align-items: center;
-    flex: 0;
-    height: fit-content;
-  }
-
-  .formContainer p span img {
-    width: 14px;
-  }
-
-  .formContainer form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .formContainer form div {
-    display: flex;
-    gap: 10px;
-  }
-
-  .formContainer form div input {
-    background-color: var(--color-primary-light);
-    color: var(--color-dark);
-    border: none;
-    padding: 10px 20px;
-    flex: 1;
-    border-radius: 5px;
-    box-shadow: inset 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
-  }
-
-  .formContainer form textarea {
-    background-color: var(--color-primary-light);
-    color: var(--color-dark);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-family: 'Lato', sans-serif;
-    box-shadow: inset 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
-    resize: vertical;
-    min-height: 150px;
-    max-height: 500px;
-  }
-
-  .formContainer form button {
-    background: var(--color-primary);
-    color: var(--color-light);
-    margin-right: auto;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
   }
 
   .datos {
