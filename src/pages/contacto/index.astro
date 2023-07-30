@@ -1,10 +1,156 @@
 ---
+import SectionContainer from '@components/SectionContainer.astro'
+import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
-<Layout title="CentralMat">
-  <main>
-  </main>
+<Layout title="Contacto - CentralMat">
+  <SectionContainer>
+    <div class="welcome">
+      <Title>PONTE EN CONTACTO</Title>
+      <p>
+        ¡Gracias por visitar nuestra página de contacto! Estamos encantados de
+        ayudarte en lo que necesites. Si tienes alguna consulta, solicitud de
+        cotización o simplemente deseas más información sobre nuestros productos
+        y servicios, no dudes en completar el formulario de contacto a
+        continuación. Nuestro equipo estará encantado de responder tus preguntas
+        y brindarte una atención personalizada.
+      </p>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <div class="formContainer">
+      <h3>Formulario de Contacto</h3>
+      <p>Completa el formulario y nos pondremos en contacto contigo lo mas rapido posible.</p>
+      <form>
+        <div>
+          <input type="text" placeholder="Nombre Completo">
+          <input type="email" placeholder="Correo Electrónico">
+          <input type="tel" placeholder="Telefono de Contacto">
+        </div>
+        <textarea placeholder="Mensaje"></textarea>
+        <p><span><img src="/ico/info-empty.svg" alt="Important information icon"></span>La información proporcionada se utilizará únicamente para fines de contacto y no será compartida con terceros sin su consentimiento.</p>
+        <button>
+          Enviar
+        </button>
+      </form>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <div class="datos">
+      <div>
+        <h3>Información de Contacto</h3>
+        <p>Correo Electrónico: <a href="mailto:contacto@centralmat.com.ar" target="_blank">contacto@centralmat.com.ar</a></p>
+        <p>Horario de Atención: 09:00 - 17:00 Lunes a Viernes</p>
+      </div>
+      <div>
+        <h3>Redes Sociales</h3>
+        <p>Síguenos en nuestras redes sociales para estar al tanto de nuestras novedades y promociones:</p>
+        <p>Instagram: <a href="https://www.instagram.com/centralmatsrl/?hl=es" target="_blank">@centralmatsrl</a></p>
+        <p>LinkedIn: [Enlace a tu perfil de LinkedIn]</p>
+      </div>
+    </div>
+  </SectionContainer>
 </Layout>
 
-<style></style>
+<style>
+  .welcome {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .formContainer h3 {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+  }
+
+  .formContainer p {
+    font-size: var(--font-size-text);
+    display: flex;
+    gap: 5px;
+  }
+
+  .formContainer p span {
+    display: flex;
+    align-items: center;
+    flex: 0;
+    height: fit-content;
+  }
+
+  .formContainer p span img {
+    width: 14px;
+  }
+
+  .formContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .formContainer form div {
+    display: flex;
+    gap: 10px;
+  }
+
+  .formContainer form div input {
+    background-color: var(--color-primary-light);
+    color: var(--color-dark);
+    border: none;
+    padding: 10px 20px;
+    flex: 1;
+    border-radius: 5px;
+    box-shadow: inset 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+  }
+
+  .formContainer form textarea {
+    background-color: var(--color-primary-light);
+    color: var(--color-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    box-shadow: inset 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+    resize: vertical;
+    min-height: 150px;
+    max-height: 500px;
+  }
+
+  .formContainer form button {
+    background: var(--color-primary);
+    color: var(--color-light);
+    margin-right: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px var(--shadow-darker);
+    font-size: var(--font-size-subtitle);
+  }
+
+  .datos {
+    display: flex;
+    width: 100%;
+  }
+
+  .datos div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .datos div p a {
+    color: var(--color-dark);
+  }
+</style>
