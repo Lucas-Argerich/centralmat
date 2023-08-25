@@ -3,9 +3,10 @@ interface Props {
   src: string
   placeholder?: string
   height: string
+  plain?: boolean
 }
 
-const { src, placeholder = '', height } = Astro.props
+const { src, placeholder = '', height, plain = false } = Astro.props
 ---
 
 <section style={{ height }}>
@@ -15,7 +16,7 @@ const { src, placeholder = '', height } = Astro.props
     aria-hidden="true"
   >
     <img src={src} alt="imagen de fondo" aria-hidden="true" loading="lazy" />
-    <span class="overlay"></span>
+    <span class="overlay" style={plain ? { background: '#2e2e2e7f' } : {}}></span>
   </div>
   <div class="center">
     <slot />
