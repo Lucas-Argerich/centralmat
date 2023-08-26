@@ -10,81 +10,107 @@
 <style>
   .sliderContainer {
     width: 100%;
-    margin: 0 auto;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    scrollbar-width: none;
+    border: 1px solid #ccc;
   }
 
   .sliderContainer::-webkit-scrollbar {
-    width: 0;
+    width: 100%;
+    height: 8px;
+    overflow: auto;
+  }
+
+  .sliderContainer::-webkit-scrollbar-thumb {
+    background: var(--color-primary-light);
+    border-radius: 3px;
+  }
+
+  .sliderContainer::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
   }
 
   .slider {
+    width: fit-content;
     display: flex;
     gap: 20px;
     flex-wrap: nowrap;
     position: relative;
+    margin: 20px;
   }
 </style>
 
 <script>
-  const sliderContainers = document.querySelectorAll('.sliderContainer');
+  const sliderContainers = document.querySelectorAll('.sliderContainer')
   sliderContainers.forEach((sliderContainer) => {
-    const slider:HTMLDivElement = sliderContainer.querySelector('.slider')!;
-    const slides = Object.values(slider.children) as HTMLElement[];
+    const slider: HTMLDivElement = sliderContainer.querySelector('.slider')!
+    const slides = Object.values(slider.children) as HTMLElement[]
 
     function nextSlide() {
-      const currentSlideIndex = slides.findIndex((slide) => Math.ceil(sliderContainer.scrollLeft) < slide.offsetLeft);
-      const slideWidth = slides[currentSlideIndex]?.offsetLeft - sliderContainer.scrollLeft;
+      const isAfterScreenTop = slider.offsetTop - window.scrollY > 0
+      const isBeforeScreenBottom =
+        slider.offsetTop - window.scrollY + slider.offsetHeight <
+        window.innerHeight
+
+      if (!isAfterScreenTop || !isBeforeScreenBottom) return
+
+      const currentSlideIndex = slides.findIndex(
+        (slide) => Math.ceil(sliderContainer.scrollLeft) < slide.offsetLeft
+      )
+      const slideWidth =
+        slides[currentSlideIndex]?.offsetLeft - sliderContainer.scrollLeft
       if (sliderContainer.scrollLeft < 0) return
-      if (sliderContainer.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-        sliderContainer.scrollLeft = 0;
+      if (
+        Math.ceil(sliderContainer.scrollLeft) >=
+        sliderContainer.scrollWidth - sliderContainer.clientWidth - 1
+      ) {
+        // -1 to avoid subpixel resolution rounding in clientWidth
+        sliderContainer.scrollLeft = 0
         return
-      };
-      sliderContainer.scrollLeft += slideWidth;
+      }
+      sliderContainer.scrollLeft += slideWidth
     }
 
-    let intervalId: number;
+    let intervalId: number
 
     function startAutoSlideShow() {
-      intervalId = setInterval(nextSlide, 3000); // Set the time (in milliseconds) for slide transition
+      intervalId = setInterval(nextSlide, 3000) // Set the time (in milliseconds) for slide transition
     }
 
     function stopAutoSlideShow() {
-      clearInterval(intervalId);
+      clearInterval(intervalId)
     }
 
-    startAutoSlideShow(); // Start the auto slide show
+    startAutoSlideShow() // Start the auto slide show
 
-    slider.addEventListener('mouseenter', stopAutoSlideShow); // Pause auto slide show when mouse is over the slider
-    slider.addEventListener('mouseleave', startAutoSlideShow);
-    slider.addEventListener('touchstart', stopAutoSlideShow); // Pause auto slide show when touch is over the slider
-    slider.addEventListener('touchend', startAutoSlideShow);
+    slider.addEventListener('mouseenter', stopAutoSlideShow) // Pause auto slide show when mouse is over the slider
+    slider.addEventListener('mouseleave', startAutoSlideShow)
+    slider.addEventListener('touchstart', stopAutoSlideShow) // Pause auto slide show when touch is over the slider
+    slider.addEventListener('touchend', startAutoSlideShow)
 
-    let isDragging = false;
-    let startPosX = 0;
-    let scrollLeft = 0;
+    let isDragging = false
+    let startPosX = 0
+    let scrollLeft = 0
 
     slider.addEventListener('mousedown', (e) => {
-      e.preventDefault(); // Prevent text selection during dragging
-      isDragging = true;
-      startPosX = e.clientX;
-      scrollLeft = sliderContainer.scrollLeft;
-    });
+      e.preventDefault() // Prevent text selection during dragging
+      isDragging = true
+      startPosX = e.clientX
+      scrollLeft = sliderContainer.scrollLeft
+    })
 
     slider.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
+      isDragging = false
+    })
 
     slider.addEventListener('mouseleave', () => {
-      isDragging = false;
-    });
+      isDragging = false
+    })
 
     slider.addEventListener('mousemove', (e: MouseEventInit) => {
-      if (!isDragging) return;
-      const moveX = e.clientX! - startPosX;
-      sliderContainer.scrollLeft = scrollLeft - moveX;
-    });
-  });
+      if (!isDragging) return
+      const moveX = e.clientX! - startPosX
+      sliderContainer.scrollLeft = scrollLeft - moveX
+    })
+  })
 </script>
