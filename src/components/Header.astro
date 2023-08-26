@@ -15,7 +15,7 @@
     />
   </button>
   <nav>
-    <div class="logo-container">
+    <div>
         <img src="/img/logo2.png" alt="Logo de CentralMat" />
     </div>
     <ul>
@@ -50,9 +50,19 @@
     top: 0;
   }
 
-  .logo {
+  .logo-container {
+    overflow: hidden;
+    height: inherit;
+    display: flex;
+  }
+
+  .logo-container a {
+    height: inherit;
+  }
+
+  .logo-container a .logo {
     width: 200px;
-    height: auto;
+    height: inherit;
     object-fit: cover;
   }
 
