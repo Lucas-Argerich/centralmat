@@ -1,54 +1,57 @@
-# Astro Starter Kit: Basics
+# CentralMat - Construction Materials Website
 
-```
-npm create astro@latest -- --template basics
-```
+[centralmat.com.ar]() is a website designed to provide a comprehensive platform for showcasing and managing a wide range of construction materials and services. This repository contains the source code for the CentralMat website, which is built using modern web development technologies.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Technical Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+-**Front-end Development:** The website utilizes modern front-end technologies, including HTML5, CSS3, TypeScript, and JavaScript, to provide an intuitive and responsive user interface.
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+-**Astro Framework:** CentralMat is developed using the Astro framework, a cutting-edge static site generator that combines the best of server rendering and static site generation to optimize performance and user experience.
 
-## 🚀 Project Structure
+-**Responsive Design:** The website is responsive and optimized for various devices and screen sizes, ensuring a seamless browsing experience across desktops, tablets, and smartphones.
 
-Inside of your Astro project, you'll see the following folders and files:
+-**Dynamic Content:** CentralMat fetches data from structured JSON files and renders dynamic content, enabling easy updates and additions to the product catalog and other sections.
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+-**SEO Optimization:** The website is meticulously optimized for search engines, employing proper meta tags, structured data, and meaningful content to improve its visibility and ranking in search results.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+-**Component-Based Architecture:** The application is structured using a modular and component-based architecture, enhancing code organization, reusability, and maintainability.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+-**TypeScript and ESLint:** The project is built with TypeScript for type-safe programming and utilizes ESLint with the Standard configuration to enforce code quality and consistent coding style.
 
-Any static assets, like images, can be placed in the `public/` directory.
+-**Version Control:** The source code is managed using Git and hosted on GitHub, allowing collaborative development, issue tracking, and seamless deployment.
 
-## 🧞 Commands
+-**Contributions Welcome:** The project is open to contributions from the community. Developers can fork the repository, make changes, and submit pull requests to enhance the website's functionality and features.
 
-All commands are run from the root of the project, from a terminal:
+## Getting Started
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Prerequisites
 
-## 👀 Want to learn more?
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) (installed with Node.js)
+- [git](https://git-scm.com) 
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/Lucas-Argerich/centralmat
+   ```
+2. Navigate to the proyect directory:
+
+   ```
+   cd centralmat
+   ```
+3. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+## Usage
+
+1. Start the development server:
+   ```
+   npm run dev
+   ```
+2. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to interact with the CentralMat website.
