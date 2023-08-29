@@ -1,10 +1,376 @@
 ---
+import ProductCard from '@components/ProductCard.astro'
+import SectionContainer from '@components/SectionContainer.astro'
+import Slider from '@components/Slider.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
-<Layout title="CentralMat">
-  <main>
-  </main>
+<Layout title="Productos - CentralMat">
+  <SectionContainer>
+    <h1>¡Ahorrá comprando directamente con nosotros!</h1>
+    <h2>Navegá por los catálogos de las mejores marcas de construcción.</h2>
+  </SectionContainer>
+  <SectionContainer>
+    <div class="title">
+      <h3>Ladrillos</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Ladrillos HCCA"
+        provider="Brimax Argentina"
+        image="/img/productos/brimax/ladrilloHCCABrimax.jpg"
+        pageImage="/img/productos/brimax/ladrilloHCCABrimaxWeb.jpg"
+        link="https://brimaxargentina.com.ar/productos/"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Adhesivos y Revestimientos</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Adhesivo para Ladrillos"
+        provider="Pegabrick"
+        image="/img/productos/pegabrick/adhesivoLadrilloPegabrick.png"
+        pageImage="/img/productos/pegabrick/adhesivoLadrilloPegabrickWeb.jpg"
+        link="https://pegabrick.com.ar/"
+      />
+      <ProductCard
+        product="Adhesivos para Cerámicas y Procellanatos"
+        provider="Premecol"
+        image="/img/productos/premecol/adhesivoPremecol.webp"
+        pageImage="/img/productos/premecol/adhesivoPremecolWeb.jpg"
+        link="https://premecol.com.ar/adhesivos/"
+      />
+      <ProductCard
+        product="Pastinas"
+        provider="Premecol"
+        image="/img/productos/premecol/pastinasPremecol.webp"
+        pageImage="/img/productos/premecol/pastinasPremecolWeb.jpg"
+        link="https://premecol.com.ar/pastinas/"
+      />
+      <ProductCard
+        product="Revestimientos Cementicios"
+        provider="Premecol"
+        image="/img/productos/premecol/revestimientoCementicioPremecol.webp"
+        pageImage="/img/productos/premecol/revestimientoCementicioPremecolWeb.jpg"
+        link="https://premecol.com.ar/revestimientos/"
+      />
+      <ProductCard
+        product="Revestimientos Acrílicos"
+        provider="Premecol"
+        image="/img/productos/premecol/revestimientoAcrilicoPremecol.webp"
+        pageImage="/img/productos/premecol/revestimientoAcrilicoPremecolWeb.jpg"
+        link="https://premecol.com.ar/plaster/"
+      />
+      <ProductCard
+        product="Revestimiento Monocapa"
+        provider="Premecol"
+        image="/img/productos/premecol/revestimientoMonocapaPremecol.webp"
+        pageImage="/img/productos/premecol/revestimientoMonocapaPremecolWeb.jpg"
+        link="https://premecol.com.ar/quattro/"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Morteros y Impermeabilizantes</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Morteros Proyectables"
+        provider="Premecol"
+        image="/img/productos/premecol/morteroProyectablePremecol.webp"
+        pageImage="/img/productos/premecol/morteroProyectablePremecolWeb.jpg"
+        link="https://premecol.com.ar/morteros-proyectables/"
+      />
+      <ProductCard
+        product="Aditivos para Morteros y Hormigones"
+        provider="Premecol"
+        image="/img/productos/premecol/aditivoPremecol.webp"
+        pageImage="/img/productos/premecol/aditivoPremecolWeb.jpg"
+        link="https://premecol.com.ar/aditivos/"
+      />
+      <ProductCard
+        product="Impermeabilizantes Variados"
+        provider="Premecol"
+        image="/img/productos/premecol/impermeabilizantePremecol.webp"
+        pageImage="/img/productos/premecol/impermeabilizantePremecolWeb.jpg"
+        link="https://premecol.com.ar/flexo/"
+      />
+    </Slider>
+    <!-- <div class="title">
+      <h2>Impermeabilizantes</h2>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Impermeabilizantes Variados"
+        provider="Premecol"
+        image="/img/productos/premecol/impermeabilizantePremecol.webp"
+        pageImage="/img/productos/premecol/impermeabilizantePremecolWeb.jpg"
+        link="https://premecol.com.ar/flexo/"
+      />
+    </Slider> -->
+    <div class="title">
+      <h3>Cerámicas y Porcelanatos Nacionales</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Ceramicas"
+        provider="Cerro Negro"
+        image="/img/productos/cerroNegro/ceramicosCerroNegro.jpg"
+        pageImage="/img/productos/cerroNegro/ceramicosCerroNegroWeb.jpg"
+        link="https://cerronegro.com.ar/ceramicos"
+      />
+      <ProductCard
+        product="Porcelanato"
+        provider="Cerro Negro"
+        image="/img/productos/cerroNegro/porcelanatosCerroNegro.jpg"
+        pageImage="/img/productos/cerroNegro/porcelanatosCerroNegroWeb.jpg"
+        link="https://cerronegro.com.ar/porcelanatos"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Cerámicas y Porcelanatos Importados España</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Porcelanatos Símil Madera"
+        provider="Argenta"
+        image="/img/productos/argenta/porcelanatoMaderaArgenta.png"
+        pageImage="/img/productos/argenta/porcelanatoMaderaArgentaWeb.jpg"
+        link="https://www.argentaceramica.com/productos/gardby/"
+      />
+      <ProductCard
+        product="Porcelanatos Símil Cemento"
+        provider="Argenta"
+        image="/img/productos/argenta/porcelanatoCementoArgenta.png"
+        pageImage="/img/productos/argenta/porcelanatoCementoArgentaWeb.jpg"
+        link="https://www.argentaceramica.com/productos/concrete/"
+      />
+      <ProductCard
+        product="Porcelanatos Tessino"
+        provider="Azulejos Benadresa"
+        image="/img/productos/ab/porcelanatoTessinoAB.jpg"
+        pageImage="/img/productos/ab/porcelanatoTessinoABWeb.jpg"
+        link="https://www.azulejosbenadresa.com/producto/tessino/"
+      />
+      <ProductCard
+        product="Porcelanatos Siena"
+        provider="Azulejos Benadresa"
+        image="/img/productos/ab/porcelanatoSienaAB.jpg"
+        pageImage="/img/productos/ab/porcelanatoSienaABWeb.jpg"
+        link="https://www.azulejosbenadresa.com/producto/siena/"
+      />
+      <ProductCard
+        product="Porcelanatos Abstract"
+        provider="Azulejos Benadresa"
+        image="/img/productos/ab/porcelanatoAbstractAB.jpg"
+        pageImage="/img/productos/ab/porcelanatoAbstractABWeb.jpg"
+        link="https://www.azulejosbenadresa.com/producto/abstract/"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Cerámicas y Porcelanatos Importados Brasil</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Porcelanatos 72x72"
+        provider="Via Rosa"
+        image="/img/productos/viaRosa/porcelanato72x72ViaRosa.jpg"
+        pageImage="/img/productos/viaRosa/porcelanato72x72ViaRosaWeb.jpg"
+        link="https://viarosa.com.br/porcelanatos/72x72"
+      />
+      <ProductCard
+        product="Porcelanatos 71x71"
+        provider="Via Rosa"
+        image="/img/productos/viaRosa/porcelanato71x71ViaRosa.jpg"
+        pageImage="/img/productos/viaRosa/porcelanato71x71ViaRosaWeb.jpg"
+        link="https://viarosa.com.br/porcelanatos/71x71"
+      />
+      <ProductCard
+        product="Porcelanato Bianco Master Po"
+        provider="Elizabeth"
+        image="/img/productos/elizabeth/porcelanatoBiancoMasterPoElizabeth.jpg"
+        pageImage="/img/productos/elizabeth/porcelanatoBiancoMasterPoElizabethWeb.jpg"
+        link="https://elizabethrevestimentos.com.br/pt/produto/BIANCO-MASTER-PO/"
+      />
+      <ProductCard
+        product="Ceramico Branco Neve"
+        provider="Lef Cerâmica"
+        image="/img/productos/lef/ceramicoBrancoNeveLef.png"
+        pageImage="/img/productos/lef/ceramicoBrancoNeveLefWeb.jpg"
+        link="https://lef.com.br/revestimentos-ceramicos/piso-ceramico-branco-neve-33x59-lf33608"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Griferías</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Griferías con Cierre Cerámico"
+        provider="Piazza"
+        image="/img/productos/piazza/griferiaCierreCeramicoPiazza.jpg"
+        pageImage="/img/productos/piazza/griferiaCierreCeramicoPiazzaWeb.jpg"
+        link="https://www.piazzagriferia.com/productos-listado.html?codtipo=&codmarca=2&codsubmarca=&codlinea"
+      />
+      <ProductCard
+        product="Griferías con Cierre de Compresión"
+        provider="Piazza"
+        image="/img/productos/piazza/griferiaCierreCompresionPiazza.jpg"
+        pageImage="/img/productos/piazza/griferiaCierreCompresionPiazzaWeb.jpg"
+        link="https://www.piazzagriferia.com/productos-listado.html?codtipo=&codmarca=3&codsubmarca=&codlinea"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Sanitarios y Equipamiento de Baño</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Sanitarios"
+        provider="Piazza"
+        image="/img/productos/piazza/sanitarioPiazza.jpg"
+        pageImage="/img/productos/piazza/sanitarioPiazzaWeb.jpg"
+        link="https://www.piazzagriferia.com/productos-listado.html?codtipo=&codmarca=SA&codsubmarca=&codlinea"
+      />
+      <ProductCard
+        product="Bañeras"
+        provider="Piazza"
+        image="/img/productos/piazza/baneraPiazza.jpg"
+        pageImage="/img/productos/piazza/baneraPiazzaWeb.jpg"
+        link="https://www.piazzagriferia.com/productos-listado.html?codtipo=&codmarca=BANE&codsubmarca=&codlinea"
+      />
+      <ProductCard
+        product="Hidromasajes"
+        provider="Piazza"
+        image="/img/productos/piazza/hidromasajePiazza.jpg"
+        pageImage="/img/productos/piazza/hidromasajePiazzaWeb.jpg"
+        link="https://www.piazzagriferia.com/productos-listado.html?codtipo=&codmarca=BH&codsubmarca=&codlinea"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Pinturas</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Bases de Pinturas"
+        provider="Andina"
+        image="/img/productos/andina/pinturaBaseAndina.webp"
+        pageImage="/img/productos/andina/pinturaBaseAndinaWeb.jpg"
+        link="https://www.pinturasandina.com.ar/pinturas/linea-base/"
+      />
+      <ProductCard
+        product="Pinturas Impermeabilizantes"
+        provider="Andina"
+        image="/img/productos/andina/pinturaImpermeabilizanteAndina.webp"
+        pageImage="/img/productos/andina/pinturaImpermeabilizanteAndinaWeb.jpg"
+        link="https://www.pinturasandina.com.ar/pinturas/linea-impermeabilizantes/"
+      />
+      <ProductCard
+        product="Pinturas Látex"
+        provider="Andina"
+        image="/img/productos/andina/pinturaLatexAndina.webp"
+        pageImage="/img/productos/andina/pinturaLatexAndinaWeb.jpg"
+        link="https://www.pinturasandina.com.ar/pinturas/linea-latex/"
+      />
+      <ProductCard
+        product="Pinturas para Pisos y Piletas"
+        provider="Andina"
+        image="/img/productos/andina/pinturaPiletaAndina.png"
+        pageImage="/img/productos/andina/pinturaPiletaAndinaWeb.jpg"
+        link="https://www.pinturasandina.com.ar/pinturas/linea-pisos-piletas/"
+      />
+    </Slider>
+    <div class="title">
+      <h3>Puertas</h3>
+      <p>
+        Puedes acceder a cada catálogo de marca haciendo clic en la tarjeta
+        correspondiente.
+      </p>
+    </div>
+    <Slider>
+      <ProductCard
+        product="Puertas de Exterior"
+        provider="Oblak"
+        image="/img/productos/oblak/puertaExteriorOblak.jpg"
+        pageImage="/img/productos/oblak/puertaExteriorOblakWeb.jpg"
+        link="https://www.oblak.com.ar/productos/categoria/puertas_de_exterior"
+      />
+      <ProductCard
+        product="Puertas de Interior"
+        provider="Oblak"
+        image="/img/productos/oblak/puertaInteriorOblak.jpg"
+        pageImage="/img/productos/oblak/puertaInteriorOblakWeb.jpg"
+        link="https://www.oblak.com.ar/productos/categoria/puertas_de_interior"
+      />
+    </Slider>
+  </SectionContainer>
 </Layout>
 
-<style></style>
+<style>
+  h1 {
+    font-size: var(--font-size-title);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: var(--font-size-subtitle);
+  }
+
+  p {
+    font-size: var(--font-size-text);
+  }
+
+  .title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .title h3 {
+    width: 100%;
+    font-size: var(--font-size-title);
+    color: var(--color-secondary);
+  }
+</style>
