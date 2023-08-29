@@ -12,27 +12,21 @@ import Layout from '@layouts/Layout.astro'
         <Title>NUESTROS SERVICIOS</Title>
         <span>
           <p>
-            En nuestra empresa, ofrecemos una amplia gama de servicios
-            especializados para satisfacer las necesidades de nuestros clientes
-            en la industria de la construcción.
+            En CentralMat, presentamos una amplia gama de servicios
+            especializados diseñados para atender las demandas específicas de
+            nuestros clientes en la industria de la construcción.
           </p>
           <p>
-            Nuestro equipo de profesionales altamente capacitados y
-            experimentados está listo para brindar soluciones eficientes y
-            personalizadas.
+            Contamos con un equipo de expertos altamente capacitados y
+            experimentados que están preparados para ofrecer soluciones eficaces
+            y adaptadas a cada situación.
           </p>
-        </span>
-        <span>
-          <p>
-            Nuestro éxito es proporcionar soluciones eficientes y personalizadas
-            para garantizar el suministro oportuno y confiable de materiales de
-            construcción a nuestros clientes.
-          </p>
-          <p>A continuación, se describen los servicios que ofrecemos:</p>
         </span>
       </div>
       <img src="/img/logo2.png" alt="Logo de CentralMat" />
     </div>
+  </SectionContainer>
+  <SectionContainer>
     <div class="servicios">
       <div>
         <img
@@ -84,18 +78,32 @@ import Layout from '@layouts/Layout.astro'
         </p>
       </div>
     </div>
+  </SectionContainer>
+  <SectionContainer>
+    <p>
+      Nuestro éxito es proporcionar soluciones eficientes y personalizadas para
+      garantizar el suministro oportuno y confiable de materiales de
+      construcción a nuestros clientes.
+    </p>
     <div class="buttonContainer">
       <LinkButton href="/contacto" type="secondary">
-      Solicita mas Información
+        Solicitá mas Información
       </LinkButton>
     </div>
   </SectionContainer>
 </Layout>
 
 <style>
+  p {
+    text-align: center;
+    font-size: var(--font-size-text);
+  }
+
   .nuestrosServicios {
+    width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    justify-content: space-between;
   }
 
   .nuestrosServicios div {
@@ -104,8 +112,14 @@ import Layout from '@layouts/Layout.astro'
     gap: 24px;
   }
 
-  .nuestrosServicios div p {
-    font-size: var(--font-size-text);
+  .nuestrosServicios div span {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .nuestrosServicios div span p {
+    text-align: left;
   }
 
   .nuestrosServicios img {
@@ -134,11 +148,14 @@ import Layout from '@layouts/Layout.astro'
     align-items: center;
     gap: 20px;
     flex: 0 0 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 40px 20px;
+    border-radius: 10px;
   }
 
   @media screen and (min-width: 768px) {
     .servicios div {
-      flex: 0 0 calc(50% - 40px);
+      flex: 0 0 calc(50% - 20px);
     }
   }
 
@@ -154,15 +171,9 @@ import Layout from '@layouts/Layout.astro'
     font-weight: 600;
   }
 
-  .servicios p {
-    text-align: center;
-    font-size: var(--font-size-text);
-  }
-
   .buttonContainer {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 50px;
   }
 </style>
