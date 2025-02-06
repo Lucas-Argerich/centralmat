@@ -14,9 +14,14 @@ const { title } = Astro.props
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-422DYP17JX"></script>
     <script>
+      declare global {
+          interface Window {
+            dataLayer: any[]
+          }
+      }
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag(..._: any[]) {
+        window.dataLayer.push(arguments);
       }
       gtag('js', new Date());
       gtag('config', 'G-422DYP17JX');
@@ -25,18 +30,18 @@ const { title } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Somos una empresa dedicada a la venta de materiales de construcción. Ofrecemos una amplia gama de productos de alta calidad para proyectos de construcción y remodelación. ¡Contáctanos para obtener los mejores materiales al mejor precio!"
+      content="Somos una empresa dedicada a la venta de materiales de construcciï¿½n. Ofrecemos una amplia gama de productos de alta calidad para proyectos de construcciï¿½n y remodelaciï¿½n. ï¿½Contï¿½ctanos para obtener los mejores materiales al mejor precio!"
     />
     <meta
       name="keywords"
-      content="materiales de construcción, venta de materiales, construcción, remodelación, materiales de construcción en línea, productos de construcción, materiales de construcción de calidad, proveedor de materiales de construcción, suministros de construcción, ladrillos huecos, ladrillos HCCA, adhesivo para ladrillos, adhesivos para cerámicas, pastinas, revestimientos cementicios, revestimientos acrílicos, revoques monocapa, morteros proyectables, aditivos para morteros, impermeabilizantes"
+      content="materiales de construcciï¿½n, venta de materiales, construcciï¿½n, remodelaciï¿½n, materiales de construcciï¿½n en lï¿½nea, productos de construcciï¿½n, materiales de construcciï¿½n de calidad, proveedor de materiales de construcciï¿½n, suministros de construcciï¿½n, ladrillos huecos, ladrillos HCCA, adhesivo para ladrillos, adhesivos para cerï¿½micas, pastinas, revestimientos cementicios, revestimientos acrï¿½licos, revoques monocapa, morteros proyectables, aditivos para morteros, impermeabilizantes"
     />
     <link rel="canonical" href="https://centralmat.com.ar" />
     <link rel="icon" type="image/svg+xml" href="https://centralmat.com.ar/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <meta property="og:title" content="CentralMat - Tu socio confiable en materiales de construcción." >
-    <meta property="og:description" content="Somos una empresa dedicada a la venta de materiales de construcción. Ofrecemos una amplia gama de productos de alta calidad para proyectos de construcción y remodelación. ¡Contáctanos para obtener los mejores materiales al mejor precio!" >
+    <meta property="og:title" content="CentralMat - Tu socio confiable en materiales de construcciï¿½n." >
+    <meta property="og:description" content="Somos una empresa dedicada a la venta de materiales de construcciï¿½n. Ofrecemos una amplia gama de productos de alta calidad para proyectos de construcciï¿½n y remodelaciï¿½n. ï¿½Contï¿½ctanos para obtener los mejores materiales al mejor precio!" >
     <meta property="og:image" content="https://centralmat.com.ar" >
     <meta property="og:url" content="https://centralmat.com.ar/img/logo2.png" >
     <meta property="og:type" content="website">
@@ -68,6 +73,7 @@ const { title } = Astro.props
 </style>
 
 <style is:global>
+  @import "tailwindcss"
   :root {
     --color-primary: #f79030;
     --color-primary-light: #ffe3c9;
