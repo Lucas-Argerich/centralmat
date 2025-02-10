@@ -9,85 +9,33 @@ interface Props {
 const { src, placeholder = '', height, plain = false } = Astro.props
 ---
 
-<section style={{ height }}>
+<section class="w-full overflow-hidden relative" style={{ height }}>
   <div
-    class="blurredBackground"
+    class="w-full h-full bg-no-repeat bg-center bg-cover relative"
     style={{ backgroundImage: 'url(' + placeholder + ')' }}
     aria-hidden="true"
   >
-    <img src={src} alt="imagen de fondo" aria-hidden="true" />
-    <span class="overlay" style={plain ? { background: '#2e2e2e7f' } : {}}></span>
+    <img
+      id="hero-image"
+      src={src}
+      alt="imagen de fondo"
+      aria-hidden="true"
+      class="w-full h-full object-cover opacity-0 data-loaded:opacity-100 transition-opacity duration-1000 ease-in-out"
+    />
+    <span
+      class={`absolute left-0 top-0 w-full h-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(46,46,46,0)_0%,rgba(46,46,46,0.5)_100%)] backdrop-blur-[10px] transition-[backdrop-filter] duration-1000 ease-in-out ${plain ? '' : 'backdrop-filter-none'}`}
+    ></span>
   </div>
-  <div class="center">
+  <div class="absolute w-full h-full top-0 left-0 flex flex-col justify-center items-center gap-5">
     <slot />
   </div>
 </section>
 
-<style>
-  section {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .blurredBackground {
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-
-  .blurredBackground img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-
-  .blurredBackground.loaded img {
-    opacity: 1;
-  }
-
-  .overlay {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(46, 46, 46, 0) 0%,
-      rgba(46, 46, 46, 0.5) 100%
-    );
-    backdrop-filter: blur(10px);
-    transition: backdrop-filter 1s ease-in-out;
-  }
-
-  .blurredBackground.loaded .overlay {
-    backdrop-filter: none;
-  }
-
-  .center {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-</style>
-
 <script>
-  const blurredBackground = document.querySelector('.blurredBackground');
-  const img = blurredBackground?.querySelector('img');
+  const img = document.querySelector('#hero-image') as HTMLImageElement | null;
   function loaded() {
-    blurredBackground?.classList.add('loaded');
+    if (!img) return
+    img.dataset.loaded = ""
   }
   if (img?.complete) {
     loaded();

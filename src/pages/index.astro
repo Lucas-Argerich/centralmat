@@ -14,302 +14,121 @@ import Layout from '@layouts/Layout.astro'
     placeholder="/img/pexels-max-rahubovskiy-7045918small.jpg"
   >
     <img
-      class="heroLogo"
+      class="w-[160px] h-[160px] bg-[var(--color-light)] rounded-full shadow-[inset_0px_0px_0px_8px_var(--color-primary),_0px_4px_8px_0px_var(--color-dark-25)]"
       src="/img/logo2.png"
       alt="Logo de CentralMat"
     />
-    <h1>TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
+    <h1 class="text-[var(--color-light)] text-center max-w-[400px] font-bold">TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
   </Hero>
 
-  <SectionContainer>
+  <!-- <SectionContainer>
     <Title subtitle="Trabajamos con Marcas Líderes en la Industria de la Construcción">NUESTRAS MARCAS</Title>
     <Slider>
-      <img class="marca" src="/img/marcas/brimax.png" alt="Logo de Brimax" />
-      <img class="marca" src="/img/marcas/pegabrick.png" alt="Logo de Pegabrick" />
-      <img class="marca" src="/img/marcas/oblak.jpg" alt="Logo de Oblak" />
-      <img class="marca" src="/img/marcas/cerronegro.png" alt="Logo de Cerro Negro" />
-      <img class="marca" src="/img/marcas/andina.jpg" alt="Logo de Andina" />
-      <img class="marca" src="/img/marcas/piazza.jpg" alt="Logo de Piazza" />
-      <img class="marca" src="/img/marcas/argenta.png" alt="Logo de Argenta" />
-      <img class="marca" src="/img/marcas/ab.jpg" alt="Logo de AB" />
-      <img class="marca" src="/img/marcas/premecol.png" alt="Logo de Premecol" />
-      <img class="marca" src="/img/marcas/viarosa.png" alt="Logo de Via Rosa" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/brimax.png" alt="Logo de Brimax" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/pegabrick.png" alt="Logo de Pegabrick" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/oblak.jpg" alt="Logo de Oblak" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/cerronegro.png" alt="Logo de Cerro Negro" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/andina.jpg" alt="Logo de Andina" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/piazza.jpg" alt="Logo de Piazza" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/argenta.png" alt="Logo de Argenta" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/ab.jpg" alt="Logo de AB" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/premecol.png" alt="Logo de Premecol" />
+      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/viarosa.png" alt="Logo de Via Rosa" />
     </Slider>
     <LinkButton href="/productos" type="secondary">
       Explorar Productos
     </LinkButton>
-  </SectionContainer>
+  </SectionContainer> -->
 
   <SectionContainer>
     <Title>CONOCE NUESTRA OFERTA DE SERVICIOS</Title>
-    <div class="servicios">
-      <div>
-        <img
-          src="ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg"
-          alt="Icono de Logística Eficiente"
-        />
-        <h3>Logística Eficiente</h3>
-        <p>
-          Coordinamos y gestionamos toda la cadena de suministro de materiales
-          de construcción, asegurando una entrega oportuna y confiable en el
-          lugar de trabajo.
-        </p>
-      </div>
-      <div>
-        <img
-          src="ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg"
-          alt="Icono de Entrega Programada"
-        />
-        <h3>Entrega Programada</h3>
-        <p>
-          Ofrecemos entregas programadas según las necesidades de cada cliente,
-          cumpliendo con los plazos acordados y evitando retrasos en los
-          proyectos.
-        </p>
-      </div>
-      <div>
-        <img
-          src="ico/support-technology-svgrepo-com.svg"
-          alt="Icono de Asistencia Técnica Personalizada"
-        />
-        <h3>Asistencia Técnica Personalizada</h3>
-        <p>
-          Nuestro equipo de profesionales altamente capacitados brinda
-          asesoramiento técnico y soluciones personalizadas, ayudando a
-          seleccionar los materiales adecuados y resolviendo consultas y
-          problemas.
-        </p>
-      </div>
-      <div>
-        <img
-          src="ico/collaboration-svgrepo-com.svg"
-          alt="Icono de Logística Colaboración Efectiva"
-        />
-        <h3>Colaboración Efectiva</h3>
-        <p>
-          Trabajamos en estrecha colaboración con nuestros clientes,
-          involucrándonos desde las etapas iniciales del proyecto, estableciendo
-          planes de entrega y asegurando una ejecución exitosa.
-        </p>
-      </div>
+    <div class="flex flex-wrap justify-between gap-10">
+      {
+        [
+          {
+            title: 'Logística Eficiente',
+            description: 'Coordinamos y gestionamos toda la cadena de suministro de materiales de construcción, asegurando una entrega oportuna y confiable en el lugar de trabajo.',
+            image: 'ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg',
+            alt: 'Icono de Logística Eficiente'
+          },
+          {
+            title: 'Entrega Programada',
+            description: 'Ofrecemos entregas programadas según las necesidades de cada cliente, cumpliendo con los plazos acordados y evitando retrasos en los proyectos.',
+            image: 'ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg',
+            alt: 'Icono de Entrega Programada'
+          },
+          {
+            title: 'Asistencia Técnica Personalizada',
+            description: 'Nuestro equipo de profesionales altamente capacitados brinda asesoramiento técnico y soluciones personalizadas, ayudando a seleccionar los materiales adecuados y resolviendo consultas y problemas.',
+            image: 'ico/support-technology-svgrepo-com.svg',
+            alt: 'Icono de Asistencia Técnica Personalizada'
+          },
+          {
+            title: 'Colaboración Efectiva',
+            description: 'Trabajamos en estrecha colaboración con nuestros clientes, involucrándonos desde las etapas iniciales del proyecto, estableciendo planes de entrega y asegurando una ejecución exitosa.',
+            image: 'ico/collaboration-svgrepo-com.svg',
+            alt: 'Icono de Logística Colaboración Efectiva'
+          }
+        ].map((data) => (
+          <div class="flex flex-col items-center gap-5 flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-[0_0_calc(25%-40px)]">
+            <img
+              src={data.image}
+              alt={data.alt}
+              class="w-20 h-20 object-contain"
+            />
+            <h3 class="text-center text-[var(--font-size-subtitle)] font-semibold">{data.title}</h3>
+            <p class="text-center text-[var(--font-size-text)]">{data.description}</p>
+          </div>
+        ))
+      }
     </div>
     <LinkButton href="/servicios" type="secondary">
       Nuestros Servicios
     </LinkButton>
   </SectionContainer>
 
-  <section class="divisor">
-    <img src="img/logo2white.png" alt="Logo de CentralMat" />
-    <h4>Trabajando Juntos Para Construir Con Éxito</h4>
-    <img src="img/logo2white.png" alt="Logo de CentralMat" />
+  <section class="flex items-center justify-center gap-7 bg-[var(--color-secondary)] py-[150px] md:flex-col">
+    <img class="w-24 h-24" src="img/logo2white.png" alt="Logo de CentralMat" />
+    <h4 class="text-[1.875rem] text-[var(--color-light)] font-normal text-center">Trabajando Juntos Para Construir Con Éxito</h4>
+    <img class="w-24 h-24" src="img/logo2white.png" alt="Logo de CentralMat" />
   </section>
 
   <SectionContainer>
     <Title>NUESTROS VALORES</Title>
-    <div class="valores">
-      <div>
-        <h3>Excelencia</h3>
-        <span></span>
-        <p>
-          Buscamos la excelencia en todo lo que hacemos. Nos esforzamos por
-          ofrecer servicios de la más alta calidad, superando las expectativas
-          de nuestros clientes. Trabajamos con profesionalismo, precisión y
-          atención al detalle en cada tarea que realizamos.
-        </p>
-      </div>
-      <div>
-        <h3>Compromiso</h3>
-        <span></span>
-        <p>
-          Estamos comprometidos con nuestros clientes y sus proyectos. Nos
-          involucramos activamente y nos responsabilizamos de ofrecer soluciones
-          confiables y efectivas. Cumplimos nuestras promesas y nos esforzamos
-          por establecer relaciones a largo plazo basadas en la confianza y la
-          satisfacción mutua.
-        </p>
-      </div>
-      <div>
-        <h3>Orientación al cliente</h3>
-        <span></span>
-        <p>
-          Ponemos a nuestros clientes en el centro de nuestras operaciones.
-          Escuchamos atentamente sus necesidades, comprendemos sus desafíos y
-          nos esforzamos por brindarles soluciones adaptadas a sus
-          requerimientos específicos. Valoramos la comunicación abierta y
-          establecemos relaciones de colaboración para garantizar la plena
-          satisfacción de nuestros clientes.
-        </p>
-      </div>
-      <div>
-        <h3>Innovación</h3>
-        <span></span>
-        <p>
-          Buscamos constantemente nuevas formas de mejorar y optimizar nuestros
-          servicios. Fomentamos la creatividad, la exploración de nuevas
-          tecnologías y la adopción de mejores prácticas en nuestro sector. Nos
-          adaptamos a los cambios del mercado y nos anticipamos a las
-          necesidades cambiantes de nuestros clientes.
-        </p>
-      </div>
-      <div>
-        <h3>Integridad</h3>
-        <span></span>
-        <p>
-          Actuamos con honestidad, ética y transparencia en todas nuestras
-          interacciones. Cumplimos con los más altos estándares de conducta
-          empresarial y nos aseguramos de tomar decisiones basadas en principios
-          éticos sólidos. Construimos relaciones de confianza tanto
-          internamente, entre nuestros empleados, como externamente, con
-          nuestros clientes y socios comerciales.
-        </p>
-      </div>
+    <div class="flex flex-wrap justify-center gap-5">
+    {
+      [{ 
+        title: 'Excelencia', 
+        description: 'Buscamos la excelencia en todo lo que hacemos. Nos esforzamos por ofrecer servicios de la más alta calidad, superando las expectativas de nuestros clientes. Trabajamos con profesionalismo, precisión y atención al detalle en cada tarea que realizamos.'
+      },
+      {
+        title: 'Compromiso',
+        description: 'Estamos comprometidos con nuestros clientes y sus proyectos. Nos involucramos activamente y nos responsabilizamos de ofrecer soluciones confiables y efectivas. Cumplimos nuestras promesas y nos esforzamos por establecer relaciones a largo plazo basadas en la confianza y la satisfacción mutua.'
+      },
+      {
+        title: 'Orientación al cliente',
+        description: 'Ponemos a nuestros clientes en el centro de nuestras operaciones. Escuchamos atentamente sus necesidades, comprendemos sus desafíos y nos esforzamos por brindarles soluciones adaptadas a sus requerimientos específicos. Valoramos la comunicación abierta y establecemos relaciones de colaboración para garantizar la plena satisfacción de nuestros clientes.'
+      },
+      {
+        title: 'Innovación',
+        description: 'Buscamos constantemente nuevas formas de mejorar y optimizar nuestros servicios. Fomentamos la creatividad, la exploración de nuevas tecnologías y la adopción de mejores prácticas en nuestro sector. Nos adaptamos a los cambios del mercado y nos anticipamos a las necesidades cambiantes de nuestros clientes.'
+      },
+      {
+        title: 'Integridad',
+        description: 'Actuamos con honestidad, ética y transparencia en todas nuestras interacciones. Cumplimos con los más altos estándares de conducta empresarial y nos aseguramos de tomar decisiones basadas en principios éticos sólidos. Construimos relaciones de confianza tanto internamente, entre nuestros empleados, como externamente, con nuestros clientes y socios comerciales.'
+      }].map((data) => (
+        <div class="py-10 px-5 flex flex-col items-center gap-5 shadow-md max-w-[300px] flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-1">
+          <h3 class="text-center text-[var(--font-size-subtitle)] font-semibold">{data.title}</h3>
+          <span class="w-1/2 h-px bg-[var(--color-dark-25)]"></span>
+          <p class="text-center text-[var(--font-size-text)]">
+            {data.description}
+          </p>
+        </div>
+      )
+      )}
     </div>
     <LinkButton href="/nosotros" type="secondary">
       Más Sobre Nosotros
     </LinkButton>
   </SectionContainer>
 </Layout>
-
-<style>
-  .heroLogo {
-    width: 160px;
-    height: 160px;
-    background-color: var(--color-light);
-    border-radius: 1000px;
-    box-shadow: inset 0px 0px 0px 8px var(--color-primary),
-      0px 4px 8px 0px var(--color-dark-25);
-  }
-
-  h1 {
-    color: var(--color-light);
-    font-size: var(--font-size-title);
-    text-align: center;
-    max-width: 400px;
-    font-weight: 700;
-  }
-
-  .marca {
-    height: 80px;
-    min-width: 150px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .servicios {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .servicios div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    flex: 1 0 100%;
-  }
-
-  @media screen and (min-width: 768px) {
-    .servicios div {
-      flex: 0 0 calc(50% - 40px);
-    }
-  }
-
-  @media screen and (min-width: 1200px) {
-    .servicios div {
-      flex: 0 0 calc(25% - 40px);
-    }
-  }
-
-  .servicios img {
-    width: 75px;
-    height: 75px;
-    object-fit: contain;
-  }
-
-  .servicios h3 {
-    text-align: center;
-    font-size: var(--font-size-subtitle);
-    font-weight: 600;
-  }
-
-  .servicios p {
-    text-align: center;
-    font-size: var(--font-size-text);
-  }
-
-  .divisor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    background: var(--color-secondary);
-    padding: 150px 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .divisor {
-      flex-direction: column;
-    }
-  }
-
-  .divisor h4 {
-    font-size: 1.875rem;
-    color: var(--color-light);
-    font-weight: 400;
-    text-align: center;
-  }
-
-  .divisor img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .valores {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .valores div {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 0 100%;
-    gap: 20px;
-    box-shadow: 0px 4px 8px 0px rgba(49, 49, 49, 0.25);
-    max-width: 300px;
-  }
-
-  .valores h3 {
-    font-size: var(--font-size-subtitle);
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .valores span {
-    width: 50%;
-    height: 1px;
-    background-color: var(--color-dark-25);
-  }
-
-  .valores p {
-    text-align: center;
-    font-size: var(--font-size-text);
-  }
-
-  @media screen and (min-width: 768px) {
-    .valores div {
-      flex: 0 0 calc(50% - 40px);
-    }
-  }
-
-  @media screen and (min-width: 1200px) {
-    .valores div {
-      flex: 1;
-    }
-  }
-</style>
