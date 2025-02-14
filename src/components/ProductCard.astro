@@ -10,85 +10,13 @@ interface Props {
 const { product, provider, image, pageImage, link } = Astro.props
 ---
 
-<a href={link} target="_blank" class="product">
-  <div class="pageImage" style={{ backgroundImage: 'url(' + pageImage + ')' }}>
-    <img src={image} alt={'Imagen de ' + product} loading="lazy" />
+<a href={link} target="_blank" class="min-h-60 sm:min-h-72 w-min grow-0 shrink-0 flex flex-col gap-1 text-[var(--text-color)] no-underline border border-zinc-300 p-2.5 group">
+  <div class="bg-cover w-[150px] h-[112.5px] sm:w-50 sm:h-[150px] object-cover border border-zinc-300" style={{ backgroundImage: 'url(' + pageImage + ')' }}>
+    <img class="w-full h-full object-contain bg-[var(--color-light)] group-hover:opacity-0 group-hover:duration-200" src={image} alt={'Imagen de ' + product} loading="lazy" />
   </div>
-  <div class="titles">
-    <h3>{product}</h3>
-    <h4>{provider}</h4>
+  <div class="flex flex-col">
+    <h3 class="inline-block font-semibold text-wrap">{product}</h3>
+    <h4 class="inline-block text-sm italic">{provider}</h4>
   </div>
-  <span>Ver catalogo de {provider}</span>
+  <span class="text-sm underline mt-auto">Ver catalogo de {provider}</span>
 </a>
-
-<style>
-  .product {
-    min-height: 280px;
-    flex: 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    color: var(--text-color);
-    text-decoration: none;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  .product .pageImage {
-    background-size: cover;
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .product img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: var(--color-light);
-  }
-
-  .product .titles {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product .titles h3,
-  .product .titles h4 {
-    display: inline-block;
-  }
-
-  .product .titles h3 {
-    font-size: var(--font-size-subtitle);
-    font-weight: 600;
-  }
-
-  .product .titles h4 {
-    font-size: var(--font-size-text);
-    font-weight: 600;
-    font-style: italic;
-  }
-
-  .product span {
-    font-size: var(--font-size-text);
-    text-decoration: underline;
-    margin-top: auto;
-  }
-
-  .product:hover img {
-    transition: 200ms;
-    opacity: 0;
-  }
-
-  @media screen and (max-width: 512px) {
-    .product {
-      min-height: 240px;
-    }
-
-    .product .pageImage {
-      width: 150px;
-      height: 112.5px;
-    }
-  }
-</style>

@@ -6,27 +6,7 @@ interface Props {
 const { subtitle } = Astro.props
 ---
 
-<div class="title">
-  <h2><slot /></h2>
-  { subtitle !== undefined && <span>{subtitle}</span> }
+<div class="flex flex-col gap-2.5 w-fit">
+  <h2 class="text-[var(--color-secondary)] text-lg font-bold text-center"><slot /></h2>
+  { subtitle !== undefined && <span class="text-center">{subtitle}</span> }
 </div>
-
-<style>
-  .title {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: fit-content;
-  }
-
-  .title h2 {
-    color: var(--color-secondary);
-    font-size: var(--font-size-title);
-    text-align: center;
-  }
-
-  .title span {
-    font-size: var(--font-size-subtitle);
-    text-align: center;
-  }
-</style>

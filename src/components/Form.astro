@@ -1,98 +1,28 @@
 ---
 ---
 
-<form class="contactForm">
-  <div>
-    <input type="text" placeholder="Nombre Completo o Empresa" name="nombre"/>
-    <input type="email" placeholder="Correo Electrónico" name="correo"/>
-    <input type="tel" placeholder="Telefono de Contacto" name="telefono"/>
+<form class="flex flex-col gap-2.5" id="contact-form">
+  <div class="flex gap-2.5 flex-wrap">
+    <input class="bg-[var(--color-primary-light)] text-[var(--color-dark]) border-none px-5 py-2.5 flex-1 rounded-sm inset-shadow-[4px_4px_8px_var(--shadow-darker)] text-sm outline-[var(--color-primary)]" type="text" placeholder="Nombre Completo o Empresa" name="nombre"/>
+    <input class="bg-[var(--color-primary-light)] text-[var(--color-dark]) border-none px-5 py-2.5 flex-1 rounded-sm inset-shadow-[4px_4px_8px_var(--shadow-darker)] text-sm outline-[var(--color-primary)]" type="email" placeholder="Correo Electrónico" name="correo"/>
+    <input class="bg-[var(--color-primary-light)] text-[var(--color-dark]) border-none px-5 py-2.5 flex-1 rounded-sm inset-shadow-[4px_4px_8px_var(--shadow-darker)] text-sm outline-[var(--color-primary)]" type="tel" placeholder="Telefono de Contacto" name="telefono"/>
   </div>
-  <textarea placeholder="Mensaje" name="mensaje"></textarea>
-  <p>
-    <span
-      ><img src="/ico/info-empty.svg" alt="Important information icon" /></span
-    >La información proporcionada se utilizará únicamente para fines de contacto
+  <textarea class="bg-[var(--color-primary-light)] text-[var(--color-dark]) border-none px-5 py-2.5 rounded-sm resize-y min-h-36 max-h-96 inset-shadow-[4px_4px_8px_var(--shadow-darker)] text-sm outline-[var(--color-primary)]" placeholder="Mensaje" name="mensaje"></textarea>
+  <p class="text-sm flex gap-1">
+    <span class="flex items-center flex-0 h-fit mt-0.5">
+      <img class="w-3.5" src="/ico/info-empty.svg" alt="Important information icon"/>
+    </span>
+    La información proporcionada se utilizará únicamente para fines de contacto
     y no será compartida con terceros sin su consentimiento.
   </p>
-  <button type="submit">Enviar</button>
+  <button type="submit" class="bg-[var(--color-primary)] disabled:bg-[var(--color-primary-light)] text-[var(--color-light)] mr-auto px-5 py-2.5 rounded-sm shadow-[4px_4px_8px_var(--shadow-darker)]">Enviar</button>
 </form>
-
-<style>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  form div {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  form div input {
-    background-color: var(--color-primary-light);
-    color: var(--color-dark);
-    border: none;
-    padding: 10px 20px;
-    flex: 1;
-    border-radius: 5px;
-    box-shadow: inset 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
-  }
-
-  form textarea {
-    background-color: var(--color-primary-light);
-    color: var(--color-dark);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-family: 'Lato', sans-serif;
-    box-shadow: inset 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
-    resize: vertical;
-    min-height: 150px;
-    max-height: 500px;
-  }
-
-  form button {
-    background: var(--color-primary);
-    color: var(--color-light);
-    margin-right: auto;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 8px var(--shadow-darker);
-    font-size: var(--font-size-subtitle);
-  }
-
-  form button:disabled {
-    background-color: var(--color-primary-light);
-  }
-
-  form p {
-    font-size: var(--font-size-text);
-    display: flex;
-    gap: 5px;
-  }
-
-  form p span {
-    display: flex;
-    align-items: center;
-    flex: 0;
-    height: fit-content;
-    margin-top: 2px;
-  }
-
-  form p span img {
-    width: 14px;
-  }
-</style>
 
 <script>
   import emailjs from '@emailjs/browser';
   emailjs.init('Z0tsUzdovu4bfIfB4');
 
-  document.querySelectorAll('form.contactForm').forEach((form) => {
+  document.querySelectorAll('#contact-form').forEach((form) => {
     const typedForm = form as HTMLFormElement;
     const submitButton = typedForm.querySelector('button[type="submit"]') as HTMLButtonElement;
 

@@ -1,189 +1,66 @@
 ---
 ---
 
-<header>
-  <div class="logo-container">
-    <a href="/">
-      <img class="logo" src="/img/logo1.png" alt="Logo de CentralMat" />
+<header class="sticky top-0 z-10 flex items-center justify-between gap-6 px-24 h-16 shadow-md bg-[var(--color-light)] md:px-15 sm:px-10">
+  <div class="h-full flex overflow-hidden">
+    <a href="/" class="h-full">
+      <img class="w-56 h-full object-cover" src="/img/logo1.png" alt="Logo de CentralMat" />
     </a>
   </div>
-  <button class="hamburger" aria-label="Abrir menú de navegación">
-    <img
-      src="/ico/hamburger.svg"
-      alt="Icono de menú desplegable"
-      aria-hidden="true"
-    />
+  <button id="hamburger" class="sm:hidden flex flex-col gap-1.5 cursor-pointer" aria-label="Abrir menú de navegación">
+    <span class="block w-7 h-0.5 bg-[var(--color-secondary)]"></span>
+    <span class="block w-7 h-0.5 bg-[var(--color-secondary)]"></span>
+    <span class="block w-7 h-0.5 bg-[var(--color-secondary)]"></span>
   </button>
-  <nav>
-    <div>
-        <img src="/img/logo2.png" alt="Logo de CentralMat" />
+  <nav class="absolute sm:relative bottom-0 left-0 w-full h-[calc(100dvh-4rem)] sm:h-auto hidden flex-col sm:flex items-center sm:items-end gap-10 px-10 bg-[var(--color-light)] sm:bg-transparent translate-y-full sm:translate-none">
+    <div class="sm:hidden">
+      <img class="h-24 w-36 object-cover" src="/img/logo2.png" alt="Logo de CentralMat" />
     </div>
-    <ul>
-      <li><a href="/">INICIO</a></li>
-      <li><a href="/productos">PRODUCTOS</a></li>
-      <li><a href="/servicios">SERVICIOS</a></li>
-      <li><a href="/nosotros">NOSOTROS</a></li>
-      <li><a href="/contacto">CONTACTO</a></li>
+    <ul class="flex gap-6 list-none flex-col items-center sm:flex-row sm:gap-8">
+      {
+        [
+          {
+            title: 'INICIO',
+            href: '/'
+          },
+          {
+            title: 'PRODUCTOS',
+            href: '/productos'
+          },
+          {
+            title: 'SERVICIOS',
+            href: '/servicios'
+          },
+          {
+            title: 'NOSOTROS',
+            href: '/nosotros'
+          },
+          {
+            title: 'CONTACTO',
+            href: '/contacto'
+          }
+        ].map((data) => (
+          <li><a href={data.href} class="text-[var(--color-secondary)] font-semibold text-sm relative after:block after:w-full after:h-px after:bg-[var(--color-secondary)] after:opacity-0 hover:after:opacity-100 transition-opacity duration-300">{data.title}</a></li>
+        ))
+      }
     </ul>
-    <button class="close" aria-label="Cerrar menú de navegación">
-      <img
-        src="/ico/cross.svg"
-        alt="Icono de cerrar menú desplegable"
-        aria-hidden="true"
-      />
+    <button class="flex sm:hidden">
+      <img class="w-auto h-auto" src="/ico/cross.svg" alt="Icono de cerrar menú desplegable" aria-hidden="true" />
     </button>
   </nav>
 </header>
 
-<style>
-  header {
-    height: 62px;
-    box-shadow: 0 4px 8px 0 var(--shadow-dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    padding: 0 100px;
-    position: sticky;
-    background-color: var(--color-light);
-    z-index: 1;
-    top: 0;
-  }
-
-  .logo-container {
-    overflow: hidden;
-    height: inherit;
-    display: flex;
-  }
-
-  .logo-container a {
-    height: inherit;
-  }
-
-  .logo-container a .logo {
-    width: 200px;
-    height: inherit;
-    object-fit: cover;
-  }
-
-  nav img {
-    display: none;
-  }
-
-  nav button {
-    display: none;
-  }
-
-  ul {
-    display: flex;
-    gap: 25px;
-    list-style-type: none;
-  }
-
-  ul li a {
-    color: var(--color-secondary);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: var(--font-size-text);
-  }
-
-  ul li a::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-secondary);
-    opacity: 0;
-  }
-
-  ul li a:is(:hover, :focus)::after {
-    opacity: 1;
-    transition: 300ms;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  @media screen and (max-width: 1200px) {
-    header {
-      padding: 0 60px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    header {
-      padding: 0 40px;
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 30px;
-      height: 2px;
-      background: var(--color-secondary);
-    }
-
-    nav {
-      width: 100%;
-      height: calc(100dvh - 62px);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      padding: 40px 0;
-      transform: translateY(100%);
-      background-color: var(--color-light);
-    }
-
-    nav.active {
-      display: flex;
-    }
-
-    nav img {
-      display: block;
-      height: 100px;
-      width: 145px;
-      object-fit: cover;
-    }
-
-    ul {
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .close {
-      display: flex;
-    }
-
-    .close img {
-      width: auto;
-      height: auto;
-    }
-  }
-</style>
-
 <script>
-  const hamburger = document.querySelector('.hamburger');
+  const hamburger = document.querySelector('#hamburger');
   const nav = document.querySelector('nav');
   hamburger?.addEventListener('click', () => {
-    nav?.classList.contains('active')
-      ? nav?.classList.remove('active')
-      : nav?.classList.add('active');
+    nav?.classList.toggle('flex');
+    nav?.classList.toggle('hidden');
   });
 
-  const close = document.querySelector('.close');
+  const close = document.querySelector('nav button');
   close?.addEventListener('click', () => {
-    nav?.classList.contains('active') && nav.classList.remove('active');
+    nav?.classList.add('hidden');
+    nav?.classList.remove('flex');
   });
 </script>

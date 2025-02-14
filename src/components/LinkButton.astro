@@ -5,46 +5,13 @@ interface Props {
 }
 
 const { href, type = 'default' } = Astro.props
+
+const styles = {
+  default: 'text-[var(--color-secondary)] bg-[var(--color-light)] shadow-[0_4px_8px_0_var(--color-dark-25)] rounded font-semibold',
+  primary: 'text-[var(--color-light)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] font-normal transition duration-300',
+  secondary: 'text-[var(--color-light)] bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] font-normal transition duration-300'
+}
 ---
-<a href={href} class={type} role="button">
+<a href={href} class={`py-1.5 px-3.5 text-sm no-underline mx-auto ${styles[type]}`} role="button">
   <slot />
 </a>
-
-<style>
-  a {
-    padding: 7px 15px;
-    font-size: var(--font-size-text);
-    text-decoration: none;
-    margin-inline: auto
-  }
-
-  .default {
-    color: var(--color-secondary);
-    background-color: var(--color-light);
-    box-shadow: 0 4px 8px 0 var(--color-dark-25);
-    border-radius: 4px;
-    font-weight: 600;
-  }
-
-  .primary {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    font-weight: 400;
-    transition: 300ms;
-  }
-
-  .primary:hover {
-    background-color: var(--color-primary-light);
-  }
-
-  .secondary {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-    font-weight: 400;
-    transition: 300ms;
-  }
-
-  .secondary:hover {
-    background-color: var(--color-secondary-light);
-  }
-</style>

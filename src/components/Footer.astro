@@ -2,74 +2,25 @@
 import LinkButton from './LinkButton.astro'
 ---
 
-<footer>
-  <img src="/img/logo3.png" alt="Logo de CentralMat">
+<footer class="flex flex-col md:flex-row justify-between items-center gap-5 px-24 md:px-5 py-5 border-t border-dark-25 overflow-x-auto overflow-y-hidden scrollbar-none">
+  <img class="w-36 h-16 object-cover" src="/img/logo3.png" alt="Logo de CentralMat" />
+
   <nav>
-    <ul>
-      <li><a href="/inicio">Inicio</a></li>
-      <li><a href="/productos">Productos</a></li>
-      <li><a href="/servicios">Servicios</a></li>
-      <li><a href="/nosotros">Nosotros</a></li>
-      <li><a href="/contacto">Contacto</a></li>
+    <ul class="flex gap-2 list-none">
+      <li><a href="/inicio" class="text-dark text-sm no-underline">Inicio</a></li>
+      <li><a href="/productos" class="text-dark text-sm no-underline">Productos</a></li>
+      <li><a href="/servicios" class="text-dark text-sm no-underline">Servicios</a></li>
+      <li><a href="/nosotros" class="text-dark text-sm no-underline">Nosotros</a></li>
+      <li><a href="/contacto" class="text-dark text-sm no-underline">Contacto</a></li>
     </ul>
   </nav>
-  <div>
-    <p>Contacto: <a href="mailto:contacto@centralmat.com.ar" target="_blank">contacto@centralmat.com.ar</a></p>
-    <p>Sitio web: <a href="https://www.centralmat.com.ar" target="_blank">www.centralmat.com.ar</a></p>
+
+  <div class="flex flex-col">
+    <p class="text-sm">Contacto: <a href="mailto:contacto@centralmat.com.ar" target="_blank" class="text-dark">contacto@centralmat.com.ar</a></p>
+    <p class="text-sm">Sitio web: <a href="https://www.centralmat.com.ar" target="_blank" class="text-dark">www.centralmat.com.ar</a></p>
   </div>
+
   <div>
     <LinkButton href="/contacto" type="secondary">Contactanos</LinkButton>
   </div>
 </footer>
-
-<style>
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 100px;
-    border-top: 1px solid var(--color-dark-25);
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-
-  .footer::-webkit-scrollbar {
-    width: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    footer {
-      padding: 20px;
-      flex-direction: column;
-    }
-  }
-
-  footer img {
-    width: 150px;
-    height: 60px;
-    object-fit: cover;
-  }
-
-  footer nav ul {
-    display: flex;
-    gap: 10px;
-    list-style-type: none;
-  }
-
-  footer nav ul li a {
-    color: var(--color-dark);
-    text-decoration: none;
-    font-size: 14px;
-  }
-
-  footer div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  footer div p {
-    font-size: 14px;
-  }
-</style>
