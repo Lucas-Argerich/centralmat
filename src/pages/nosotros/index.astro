@@ -12,9 +12,9 @@ import Layout from '@layouts/Layout.astro'
     src="/img/pexels-marc-mueller-380768.jpg"
     placeholder="/img/pexels-marc-mueller-380768small.jpg"
   >
-    <img class="heroLogo" src="/img/logo2.png" alt="Logo de CentralMat" />
-    <h1>TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
-    <div class="heroText">
+    <img class="size-40 bg-[var(--color-light)] rounded-full inset-shadow-[0_0_0_8px_var(--color-primary),0_4px_8px_0_var(--color-dark-25)]" src="/img/logo2.png" alt="Logo de CentralMat" />
+    <h1 class="text-[var(--color-light)] text-lg font-bold text-center max-w-[400px]">TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
+    <div class="text-[var(--color-light)] text-sm text-center font-normal mx-5">
       <p>
         En CentralMat nos dedicamos a ofrecer soluciones integrales y servicios
         de calidad en el suministro de materiales de construcción.
@@ -27,7 +27,7 @@ import Layout from '@layouts/Layout.astro'
   </Hero>
   <SectionContainer>
     <Title>SOBRE NOSOTROS</Title>
-    <div class="welcome">
+    <div class="flex flex-col gap-6">
       <h3>¡Bienvenido a CentralMat!</h3>
       <p>
         En CentralMat, nos enorgullece presentarnos como un equipo de
@@ -69,8 +69,8 @@ import Layout from '@layouts/Layout.astro'
         tu proyecto y brindarte la calidad y el servicio que mereces.
       </p>
     </div>
-    <div class="misionVision">
-      <h3>Nuestra Misión</h3>
+    <div class="flex flex-col gap-6 border-t border-t-[var(--color-dark-25)] pt-20 pb-7.5">
+      <h3 class="text-lg font-semibold">Nuestra Misión</h3>
       <p>
         En Central Mat nuestra misión es ser el principal proveedor de
         soluciones de abastecimiento de materiales de construcción, trabajando
@@ -81,8 +81,8 @@ import Layout from '@layouts/Layout.astro'
         duradera basada en la confianza mutua.
       </p>
     </div>
-    <div class="misionVision">
-      <h3>Nuestra Visión</h3>
+    <div class="flex flex-col gap-6 border-t border-t-[var(--color-dark-25)] pt-20 pb-7.5">
+      <h3 class="text-lg font-semibold">Nuestra Visión</h3>
       <p>
         Nuestra visión es ser reconocidos como el socio estratégico y confiable
         en la industria de la construcción, siendo líderes en la provisión de
@@ -99,44 +99,3 @@ import Layout from '@layouts/Layout.astro'
     </LinkButton>
   </SectionContainer>
 </Layout>
-
-<style>
-  .heroLogo {
-    width: 160px;
-    height: 160px;
-    background-color: var(--color-light);
-    border-radius: 1000px;
-    box-shadow: inset 0px 0px 0px 8px var(--color-primary),
-      0px 4px 8px 0px var(--color-dark-25);
-  }
-
-  h1 {
-    color: var(--color-light);
-    font-size: var(--font-size-title);
-    text-align: center;
-    max-width: 400px;
-    font-weight: 700;
-  }
-
-  .heroText {
-    color: var(--color-light);
-    font-size: var(--font-size-text);
-    text-align: center;
-    font-weight: 400;
-    margin: 0 20px;
-  }
-
-  .welcome {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .misionVision {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    border-top: 1px solid var(--color-dark-25);
-    padding: 80px 0 30px;
-  }
-</style>

@@ -7,7 +7,7 @@ import Form from '@components/Form.astro'
 
 <Layout title="Contacto - CentralMat">
   <SectionContainer>
-    <div class="welcome">
+    <div class="w-full flex flex-col gap-5">
       <Title>PONTE EN CONTACTO</Title>
       <div>
         <p>
@@ -26,16 +26,16 @@ import Form from '@components/Form.astro'
         </p>
       </div>
     </div>
-    <div class="formContainer">
-      <h3>Formulario de Contacto</h3>
-      <p>Completa el formulario y nos pondremos en contacto contigo lo mas rapido posible.</p>
+    <div class="w-full flex flex-col gap-2.5">  
+      <h3 class="text-[var(--font-size-title)] font-semibold">Formulario de Contacto</h3>
+      <p class="text-[var(--font-size-text)]">Completa el formulario y nos pondremos en contacto contigo lo mas rapido posible.</p>
       <Form />
     </div>
   </SectionContainer>
 
   <SectionContainer>
-    <div class="datos">
-      <div>
+    <div class="flex f-full">
+      <div class="flex-1 flex flex-col gap-4">
         <h3>Información de Contacto</h3>
         <p>Correo Electrónico: <a href="mailto:contacto@centralmat.com.ar" target="_blank">contacto@centralmat.com.ar</a></p>
         <p>Horario de Atención: 09:00 - 17:00 Lunes a Viernes</p>
@@ -43,50 +43,9 @@ import Form from '@components/Form.astro'
       <div>
         <h3>Redes Sociales</h3>
         <p>Síguenos en nuestras redes sociales para estar al tanto de nuestras novedades y promociones:</p>
-        <p>Instagram: <a href="https://www.instagram.com/centralmatsrl/?hl=es" target="_blank">@centralmatsrl</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/company/centralmat-srl/" target="_blank">CENTRAL MAT SRL</a></p>
+        <p>Instagram: <a class="text-[var(--color-dark)]" href="https://www.instagram.com/centralmatsrl/?hl=es" target="_blank">@centralmatsrl</a></p>
+        <p>LinkedIn: <a class="text-[var(--color-dark)]" href="https://www.linkedin.com/company/centralmat-srl/" target="_blank">CENTRAL MAT SRL</a></p>
       </div>
     </div>
   </SectionContainer>
 </Layout>
-
-<style>
-  .welcome {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .formContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .formContainer h3 {
-    font-size: var(--font-size-title);
-    font-weight: 600;
-  }
-
-  .formContainer p {
-    font-size: var(--font-size-text);
-  }
-
-  .datos {
-    display: flex;
-    width: 100%;
-  }
-
-  .datos div {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .datos div p a {
-    color: var(--color-dark);
-  }
-</style>

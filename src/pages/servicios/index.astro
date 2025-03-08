@@ -7,71 +7,75 @@ import Layout from '@layouts/Layout.astro'
 
 <Layout title="Servicios - CentralMat">
   <SectionContainer>
-    <div class="nuestrosServicios">
-      <div>
+    <div class="w-full flex gap-6 content-between">
+      <div class="flex flex-col gap-6">
         <Title>NUESTROS SERVICIOS</Title>
-        <span>
-          <p>
+        <span class="flex flex-col gap-6">
+          <p class="text-sm">
             En CentralMat, presentamos una amplia gama de servicios
             especializados diseñados para atender las demandas específicas de
             nuestros clientes en la industria de la construcción.
           </p>
-          <p>
+          <p class="text-sm">
             Contamos con un equipo de expertos altamente capacitados y
             experimentados que están preparados para ofrecer soluciones eficaces
             y adaptadas a cada situación.
           </p>
         </span>
       </div>
-      <img src="/img/logo2.png" alt="Logo de CentralMat" />
+      <img class="w-64 h-52 object-cover flex-0 hidden md:inline-block" src="/img/logo2.png" alt="Logo de CentralMat" />
     </div>
   </SectionContainer>
   <SectionContainer>
-    <div class="servicios">
-      <div>
+    <div class="flex gap-5 flex-wrap justify-between">
+      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
         <img
+          class="size-20 object-contain"
           src="/ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg"
           alt="Icono de Logística Eficiente"
         />
-        <h3>Logística Eficiente</h3>
-        <p>
+        <h3 class="text-center text-sm font-semibold">Logística Eficiente</h3>
+        <p class="text-sm text-center">
           Coordinamos y gestionamos toda la cadena de suministro de materiales
           de construcción, asegurando una entrega oportuna y confiable en el
           lugar de trabajo.
         </p>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
         <img
+          class="size-20 object-contain"
           src="/ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg"
           alt="Icono de Entrega Programada"
         />
-        <h3>Entrega Programada</h3>
-        <p>
+        <h3 class="text-center text-sm font-semibold">Entrega Programada</h3>
+        <p class="text-sm text-center">
           Ofrecemos entregas programadas según las necesidades de cada cliente,
           cumpliendo con los plazos acordados y evitando retrasos en los
           proyectos.
         </p>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
         <img
+          class="size-20 object-contain"
           src="/ico/support-technology-svgrepo-com.svg"
           alt="Icono de Asistencia Técnica Personalizada"
         />
-        <h3>Asistencia Técnica Personalizada</h3>
-        <p>
+        <h3 class="text-center text-sm font-semibold">Asistencia Técnica Personalizada</h3>
+        <p class="text-sm text-center">
           Nuestro equipo de profesionales altamente capacitados brinda
           asesoramiento técnico y soluciones personalizadas, ayudando a
           seleccionar los materiales adecuados y resolviendo consultas y
           problemas.
         </p>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
         <img
+          class="size-20 object-contain"
           src="/ico/collaboration-svgrepo-com.svg"
           alt="Icono de Logística Colaboración Efectiva"
         />
-        <h3>Colaboración Efectiva</h3>
-        <p>
+        <h3 class="text-center text-sm font-semibold">Colaboración Efectiva</h3>
+        <p class="text-sm text-center">
           Trabajamos en estrecha colaboración con nuestros clientes,
           involucrándonos desde las etapas iniciales del proyecto, estableciendo
           planes de entrega y asegurando una ejecución exitosa.
@@ -80,100 +84,15 @@ import Layout from '@layouts/Layout.astro'
     </div>
   </SectionContainer>
   <SectionContainer>
-    <p>
+    <p class="text-sm">
       Nuestro éxito es proporcionar soluciones eficientes y personalizadas para
       garantizar el suministro oportuno y confiable de materiales de
       construcción a nuestros clientes.
     </p>
-    <div class="buttonContainer">
+    <div class="w-full flex justify-center">
       <LinkButton href="/contacto" type="secondary">
         Solicitá mas Información
       </LinkButton>
     </div>
   </SectionContainer>
 </Layout>
-
-<style>
-  p {
-    text-align: center;
-    font-size: var(--font-size-text);
-  }
-
-  .nuestrosServicios {
-    width: 100%;
-    display: flex;
-    gap: 24px;
-    justify-content: space-between;
-  }
-
-  .nuestrosServicios div {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .nuestrosServicios div span {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .nuestrosServicios div span p {
-    text-align: left;
-  }
-
-  .nuestrosServicios img {
-    width: 250px;
-    height: 200px;
-    object-fit: cover;
-    flex: none;
-  }
-
-  @media screen and (max-width: 768px) {
-    .nuestrosServicios img {
-      display: none;
-    }
-  }
-
-  .servicios {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .servicios div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    flex: 0 0 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    padding: 40px 20px;
-    border-radius: 10px;
-  }
-
-  @media screen and (min-width: 768px) {
-    .servicios div {
-      flex: 0 0 calc(50% - 20px);
-    }
-  }
-
-  .servicios img {
-    width: 75px;
-    height: 75px;
-    object-fit: contain;
-  }
-
-  .servicios h3 {
-    text-align: center;
-    font-size: var(--font-size-subtitle);
-    font-weight: 600;
-  }
-
-  .buttonContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-</style>
