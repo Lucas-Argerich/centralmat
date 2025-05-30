@@ -1,17 +1,90 @@
 ---
 interface Props {
   href: string
-  type?: 'default' | 'primary' | 'secondary'
+  type?: 'default' | 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
+  icon?: string
+  iconPosition?: 'left' | 'right'
+  fullWidth?: boolean
+  disabled?: boolean
+  target?: '_blank' | '_self'
+  rel?: string
 }
 
-const { href, type = 'default' } = Astro.props
+const { 
+  href, 
+  type = 'default', 
+  size = 'md',
+  icon,
+  iconPosition = 'left',
+  fullWidth = false,
+  disabled = false,
+  target = '_self',
+  rel = target === '_blank' ? 'noopener noreferrer' : undefined
+} = Astro.props
 
-const styles = {
-  default: 'text-[var(--color-secondary)] bg-[var(--color-light)] shadow-[0_4px_8px_0_var(--color-dark-25)] rounded font-semibold',
-  primary: 'text-[var(--color-light)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] font-normal transition duration-300',
-  secondary: 'text-[var(--color-light)] bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] font-normal transition duration-300'
+const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+const sizeStyles = {
+  sm: 'text-sm py-1.5 px-3 rounded',
+  md: 'text-base py-2 px-4 rounded-md',
+  lg: 'text-lg py-2.5 px-6 rounded-lg'
 }
+const typeStyles = {
+  default: 'text-[var(--color-secondary)] bg-[var(--color-light)] hover:bg-[var(--color-light)]/90 shadow-sm focus:ring-[var(--color-secondary)]/50',
+  primary: 'text-[var(--color-light)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] shadow-sm focus:ring-[var(--color-primary)]/50',
+  secondary: 'text-[var(--color-light)] bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-light)] shadow-sm focus:ring-[var(--color-secondary)]/50',
+  outline: 'text-[var(--color-primary)] border-2 border-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 focus:ring-[var(--color-primary)]/50'
+}
+
+const buttonClass = `
+  ${baseStyles}
+  ${sizeStyles[size]}
+  ${typeStyles[type]}
+  ${fullWidth ? 'w-full' : ''}
+  ${disabled ? 'pointer-events-none' : ''}
+`
 ---
-<a href={href} class={`py-1.5 px-3.5 text-sm no-underline mx-auto ${styles[type]}`} role="button">
-  <slot />
+
+<a 
+  href={disabled ? undefined : href}
+  class={buttonClass}
+  role="button"
+  target={target}
+  rel={rel}
+  aria-disabled={disabled}
+  tabindex={disabled ? -1 : undefined}
+>
+  {icon && iconPosition === 'left' && (
+    <img src={icon} alt="" class="w-5 h-5" aria-hidden="true" />
+  )}
+  <span class="flex items-center">
+    <slot />
+  </span>
+  {icon && iconPosition === 'right' && (
+    <img src={icon} alt="" class="w-5 h-5" aria-hidden="true" />
+  )}
 </a>
+
+<style>
+  /* Add a subtle scale effect on hover */
+  a:not([aria-disabled="true"]):hover {
+    transform: translateY(-1px);
+  }
+  a:not([aria-disabled="true"]):active {
+    transform: translateY(0);
+  }
+  
+  /* Add a focus ring animation */
+  a:focus-visible {
+    animation: focusRing 0.2s ease-out;
+  }
+  
+  @keyframes focusRing {
+    from {
+      box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0.4);
+    }
+    to {
+      box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.4);
+    }
+  }
+</style>

@@ -5,97 +5,121 @@ import SectionContainer from '@components/SectionContainer.astro'
 import Slider from '@components/Slider.astro'
 import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
+import ServiceCard from '../components/ServiceCard.astro'
 ---
 
 <Layout title="CentralMat - Tu socio confiable en materiales de construcción.">
-  <Hero
-    height="435px"
-    src="/img/pexels-max-rahubovskiy-7045918.jpg"
-    placeholder="/img/pexels-max-rahubovskiy-7045918small.jpg"
-  >
-    <img
-      class="w-[160px] h-[160px] bg-[var(--color-light)] rounded-full shadow-[inset_0px_0px_0px_8px_var(--color-primary),_0px_4px_8px_0px_var(--color-dark-25)]"
-      src="/img/logo2.png"
-      alt="Logo de CentralMat"
-    />
-    <h1 class="text-[var(--color-light)] text-center max-w-[400px] font-bold">TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
-  </Hero>
+  <div class="relative">
+    <Hero
+      height="600px"
+      src="/img/pexels-max-rahubovskiy-7045918.jpg"
+      placeholder="/img/pexels-max-rahubovskiy-7045918small.jpg"
+    >
+      <div class="container mx-auto px-4 h-full flex items-center">
+        <div class="flex flex-col md:flex-row items-center gap-12 w-full max-w-7xl mx-auto">
+          <!-- Right Content - Logo (Now first on mobile) -->
+          <div class="flex-1 flex justify-center items-center animate-fade-in order-first md:order-last">
+            <div class="relative">
+              <div class="absolute inset-0 bg-[var(--color-primary)] rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <img
+                class="w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[var(--color-light)] rounded-full shadow-[inset_0px_0px_0px_8px_var(--color-primary),_0px_4px_8px_0px_var(--color-dark-25)] hover:scale-105 transition-transform duration-300 relative z-10"
+                src="/img/logo2.png"
+                alt="Logo de CentralMat"
+              />
+            </div>
+          </div>
 
-  <!-- <SectionContainer>
-    <Title subtitle="Trabajamos con Marcas Líderes en la Industria de la Construcción">NUESTRAS MARCAS</Title>
-    <Slider>
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/brimax.png" alt="Logo de Brimax" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/pegabrick.png" alt="Logo de Pegabrick" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/oblak.jpg" alt="Logo de Oblak" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/cerronegro.png" alt="Logo de Cerro Negro" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/andina.jpg" alt="Logo de Andina" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/piazza.jpg" alt="Logo de Piazza" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/argenta.png" alt="Logo de Argenta" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/ab.jpg" alt="Logo de AB" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/premecol.png" alt="Logo de Premecol" />
-      <img class="h-[80px] min-w-[150px] object-cover flex-shrink-0" src="/img/marcas/viarosa.png" alt="Logo de Via Rosa" />
-    </Slider>
-    <LinkButton href="/productos" type="secondary">
-      Explorar Productos
-    </LinkButton>
-  </SectionContainer> -->
+          <!-- Left Content (Now second on mobile) -->
+          <div class="flex flex-col items-center md:items-start gap-8 flex-1 animate-fade-in-delayed order-last md:order-first z-10">
+            <div class="flex flex-col gap-4 text-center md:text-left">
+              <h1 class="text-[var(--color-light)] font-bold text-4xl md:text-5xl lg:text-6xl leading-tight drop-shadow-lg">
+                TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN
+              </h1>
+              <p class="text-[var(--color-light)] text-lg md:text-xl opacity-90 max-w-2xl">
+                Soluciones integrales para tus proyectos de construcción, con la calidad y confianza que tu proyecto merece.
+              </p>
+            </div>
+            
+            <div class="flex flex-row justify-center md:justify-start gap-4 w-full md:w-auto">
+              <div class="hover:scale-105 transition-transform duration-300">
+                <LinkButton href="/contacto" type="primary">
+                  Contáctanos
+                </LinkButton>
+              </div>
+              <div class="hover:scale-105 transition-transform duration-300">
+                <LinkButton href="/productos" type="secondary">
+                  Ver Productos
+                </LinkButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Hero>
 
-  <SectionContainer>
-    <Title>CONOCE NUESTRA OFERTA DE SERVICIOS</Title>
-    <div class="flex flex-wrap justify-between gap-10">
+    <!-- Decorative Elements -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--color-light)] to-transparent"></div>
+  </div>
+
+  <SectionContainer class="py-20">
+    <div class="mb-12">
+      <Title>CONOCE NUESTRA OFERTA DE SERVICIOS</Title>
+    </div>
+    <div class="flex flex-wrap justify-between gap-8">
       {
         [
           {
             title: 'Logística Eficiente',
             description: 'Coordinamos y gestionamos toda la cadena de suministro de materiales de construcción, asegurando una entrega oportuna y confiable en el lugar de trabajo.',
-            image: 'ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg',
+            icon: 'logistics',
             alt: 'Icono de Logística Eficiente'
           },
           {
             title: 'Entrega Programada',
             description: 'Ofrecemos entregas programadas según las necesidades de cada cliente, cumpliendo con los plazos acordados y evitando retrasos en los proyectos.',
-            image: 'ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg',
+            icon: 'delivery',
             alt: 'Icono de Entrega Programada'
           },
           {
             title: 'Asistencia Técnica Personalizada',
             description: 'Nuestro equipo de profesionales altamente capacitados brinda asesoramiento técnico y soluciones personalizadas, ayudando a seleccionar los materiales adecuados y resolviendo consultas y problemas.',
-            image: 'ico/support-technology-svgrepo-com.svg',
+            icon: 'support',
             alt: 'Icono de Asistencia Técnica Personalizada'
           },
           {
             title: 'Colaboración Efectiva',
             description: 'Trabajamos en estrecha colaboración con nuestros clientes, involucrándonos desde las etapas iniciales del proyecto, estableciendo planes de entrega y asegurando una ejecución exitosa.',
-            image: 'ico/collaboration-svgrepo-com.svg',
-            alt: 'Icono de Logística Colaboración Efectiva'
+            icon: 'collaboration',
+            alt: 'Icono de Colaboración Efectiva'
           }
         ].map((data) => (
-          <div class="flex flex-col items-center gap-5 flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-[0_0_calc(25%-40px)]">
-            <img
-              src={data.image}
-              alt={data.alt}
-              class="w-20 h-20 object-contain"
-            />
-            <h3 class="text-center text-[var(--font-size-subtitle)] font-semibold">{data.title}</h3>
-            <p class="text-center text-[var(--font-size-text)]">{data.description}</p>
-          </div>
+          <ServiceCard {...data} />
         ))
       }
     </div>
-    <LinkButton href="/servicios" type="secondary">
-      Nuestros Servicios
-    </LinkButton>
+    <div class="mt-12 text-center">
+      <div class="hover:scale-105 transition-transform duration-300 inline-block">
+        <LinkButton href="/servicios" type="secondary">
+          Nuestros Servicios
+        </LinkButton>
+      </div>
+    </div>
   </SectionContainer>
 
-  <section class="flex items-center justify-center gap-7 bg-[var(--color-secondary)] py-[150px] md:flex-col">
-    <img class="w-24 h-24" src="img/logo2white.png" alt="Logo de CentralMat" />
-    <h4 class="text-[1.875rem] text-[var(--color-light)] font-normal text-center">Trabajando Juntos Para Construir Con Éxito</h4>
-    <img class="w-24 h-24" src="img/logo2white.png" alt="Logo de CentralMat" />
+  <section class="flex items-center justify-center gap-10 bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] py-[120px] md:flex-col relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"></div>
+    <img class="w-28 h-28 animate-float" src="img/logo2white.png" alt="Logo de CentralMat" />
+    <h4 class="text-3xl text-[var(--color-light)] font-medium text-center max-w-2xl leading-relaxed">
+      Trabajando Juntos Para Construir Con Éxito
+    </h4>
+    <img class="w-28 h-28 animate-float-delayed" src="img/logo2white.png" alt="Logo de CentralMat" />
   </section>
 
-  <SectionContainer>
-    <Title>NUESTROS VALORES</Title>
-    <div class="flex flex-wrap justify-center gap-5">
+  <SectionContainer class="py-20 bg-gray-50">
+    <div class="mb-12">
+      <Title>NUESTROS VALORES</Title>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
     {
       [{ 
         title: 'Excelencia', 
@@ -117,18 +141,60 @@ import Layout from '@layouts/Layout.astro'
         title: 'Integridad',
         description: 'Actuamos con honestidad, ética y transparencia en todas nuestras interacciones. Cumplimos con los más altos estándares de conducta empresarial y nos aseguramos de tomar decisiones basadas en principios éticos sólidos. Construimos relaciones de confianza tanto internamente, entre nuestros empleados, como externamente, con nuestros clientes y socios comerciales.'
       }].map((data) => (
-        <div class="py-10 px-5 flex flex-col items-center gap-5 shadow-md max-w-[300px] flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-1">
-          <h3 class="text-center text-[var(--font-size-subtitle)] font-semibold">{data.title}</h3>
-          <span class="w-1/2 h-px bg-[var(--color-dark-25)]"></span>
-          <p class="text-center text-[var(--font-size-text)]">
+        <div class="py-8 px-8 flex flex-col items-center gap-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 max-w-[350px] flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-1 group">
+          <div class="w-16 h-16 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-300">
+            <span class="text-2xl font-bold text-[var(--color-primary)]">{data.title[0]}</span>
+          </div>
+          <h3 class="text-center text-[var(--font-size-subtitle)] font-semibold text-[var(--color-primary)]">{data.title}</h3>
+          <span class="w-12 h-0.5 bg-[var(--color-primary)] bg-opacity-20"></span>
+          <p class="text-center text-[var(--font-size-text)] text-gray-600 leading-relaxed">
             {data.description}
           </p>
         </div>
-      )
-      )}
+      ))
+    }
     </div>
-    <LinkButton href="/nosotros" type="secondary">
-      Más Sobre Nosotros
-    </LinkButton>
+    <div class="mt-12 text-center">
+      <div class="hover:scale-105 transition-transform duration-300 inline-block">
+        <LinkButton href="/nosotros" type="secondary">
+          Más Sobre Nosotros
+        </LinkButton>
+      </div>
+    </div>
   </SectionContainer>
+
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes float-delayed {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: float-delayed 3s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+    .animate-fade-in-delayed {
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.3; }
+    }
+  </style>
 </Layout>

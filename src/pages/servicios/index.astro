@@ -6,93 +6,141 @@ import Layout from '@layouts/Layout.astro'
 ---
 
 <Layout title="Servicios - CentralMat">
-  <SectionContainer>
-    <div class="w-full flex gap-6 content-between">
-      <div class="flex flex-col gap-6">
-        <Title>NUESTROS SERVICIOS</Title>
-        <span class="flex flex-col gap-6">
-          <p class="text-sm">
-            En CentralMat, presentamos una amplia gama de servicios
-            especializados diseñados para atender las demandas específicas de
-            nuestros clientes en la industria de la construcción.
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-b from-primary/5 to-white py-20">
+    <div class="absolute inset-0 bg-[radial-gradient(var(--color-secondary)_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+    <SectionContainer>
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary text-[var(--color-secondary)]">NUESTROS SERVICIOS</h1>
+        <div class="flex flex-col md:flex-row items-center gap-8 mt-12">
+          <div class="flex-1 space-y-6 text-left">
+            <p class="text-base md:text-lg leading-relaxed">
+              En CentralMat, presentamos una amplia gama de servicios
+              especializados diseñados para atender las demandas específicas de
+              nuestros clientes en la industria de la construcción.
+            </p>
+            <p class="text-base md:text-lg leading-relaxed">
+              Contamos con un equipo de expertos altamente capacitados y
+              experimentados que están preparados para ofrecer soluciones eficaces
+              y adaptadas a cada situación.
+            </p>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <img 
+              class="w-72 h-auto object-contain transform hover:scale-105 transition-transform duration-300" 
+              src="/img/logo2.png" 
+              alt="Logo de CentralMat" 
+            />
+          </div>
+        </div>
+      </div>
+    </SectionContainer>
+  </div>
+
+  <!-- Services Grid -->
+  <SectionContainer class="py-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 transform hover:-translate-y-1">
+        <div class="flex flex-col items-center gap-6">
+          <div class="p-4 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+            <img
+              class="size-16 object-contain"
+              src="/ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg"
+              alt="Icono de Logística Eficiente"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-primary">Logística Eficiente</h3>
+          <p class="text-base text-center text-gray-600 leading-relaxed">
+            Coordinamos y gestionamos toda la cadena de suministro de materiales
+            de construcción, asegurando una entrega oportuna y confiable en el
+            lugar de trabajo.
           </p>
-          <p class="text-sm">
-            Contamos con un equipo de expertos altamente capacitados y
-            experimentados que están preparados para ofrecer soluciones eficaces
-            y adaptadas a cada situación.
+        </div>
+      </div>
+
+      <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 transform hover:-translate-y-1">
+        <div class="flex flex-col items-center gap-6">
+          <div class="p-4 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+            <img
+              class="size-16 object-contain"
+              src="/ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg"
+              alt="Icono de Entrega Programada"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-primary">Entrega Programada</h3>
+          <p class="text-base text-center text-gray-600 leading-relaxed">
+            Ofrecemos entregas programadas según las necesidades de cada cliente,
+            cumpliendo con los plazos acordados y evitando retrasos en los
+            proyectos.
           </p>
-        </span>
+        </div>
       </div>
-      <img class="w-64 h-52 object-cover flex-0 hidden md:inline-block" src="/img/logo2.png" alt="Logo de CentralMat" />
-    </div>
-  </SectionContainer>
-  <SectionContainer>
-    <div class="flex gap-5 flex-wrap justify-between">
-      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
-        <img
-          class="size-20 object-contain"
-          src="/ico/logistics-box-package-ultrathin-outline-svgrepo-com.svg"
-          alt="Icono de Logística Eficiente"
-        />
-        <h3 class="text-center text-sm font-semibold">Logística Eficiente</h3>
-        <p class="text-sm text-center">
-          Coordinamos y gestionamos toda la cadena de suministro de materiales
-          de construcción, asegurando una entrega oportuna y confiable en el
-          lugar de trabajo.
-        </p>
+
+      <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 transform hover:-translate-y-1">
+        <div class="flex flex-col items-center gap-6">
+          <div class="p-4 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+            <img
+              class="size-16 object-contain"
+              src="/ico/support-technology-svgrepo-com.svg"
+              alt="Icono de Asistencia Técnica Personalizada"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-primary">Asistencia Técnica Personalizada</h3>
+          <p class="text-base text-center text-gray-600 leading-relaxed">
+            Nuestro equipo de profesionales altamente capacitados brinda
+            asesoramiento técnico y soluciones personalizadas, ayudando a
+            seleccionar los materiales adecuados y resolviendo consultas y
+            problemas.
+          </p>
+        </div>
       </div>
-      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
-        <img
-          class="size-20 object-contain"
-          src="/ico/logistics-commercial-truck-ultrathin-transport-svgrepo-com.svg"
-          alt="Icono de Entrega Programada"
-        />
-        <h3 class="text-center text-sm font-semibold">Entrega Programada</h3>
-        <p class="text-sm text-center">
-          Ofrecemos entregas programadas según las necesidades de cada cliente,
-          cumpliendo con los plazos acordados y evitando retrasos en los
-          proyectos.
-        </p>
-      </div>
-      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
-        <img
-          class="size-20 object-contain"
-          src="/ico/support-technology-svgrepo-com.svg"
-          alt="Icono de Asistencia Técnica Personalizada"
-        />
-        <h3 class="text-center text-sm font-semibold">Asistencia Técnica Personalizada</h3>
-        <p class="text-sm text-center">
-          Nuestro equipo de profesionales altamente capacitados brinda
-          asesoramiento técnico y soluciones personalizadas, ayudando a
-          seleccionar los materiales adecuados y resolviendo consultas y
-          problemas.
-        </p>
-      </div>
-      <div class="flex flex-col items-center gap-5 basis-full md:basis-[calc(50%-20px)] shadow-[var(--shadow-dark)_0_4px_12px] py-10 px-5 rounded-lg">
-        <img
-          class="size-20 object-contain"
-          src="/ico/collaboration-svgrepo-com.svg"
-          alt="Icono de Logística Colaboración Efectiva"
-        />
-        <h3 class="text-center text-sm font-semibold">Colaboración Efectiva</h3>
-        <p class="text-sm text-center">
-          Trabajamos en estrecha colaboración con nuestros clientes,
-          involucrándonos desde las etapas iniciales del proyecto, estableciendo
-          planes de entrega y asegurando una ejecución exitosa.
-        </p>
+
+      <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 transform hover:-translate-y-1">
+        <div class="flex flex-col items-center gap-6">
+          <div class="p-4 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+            <img
+              class="size-16 object-contain"
+              src="/ico/collaboration-svgrepo-com.svg"
+              alt="Icono de Logística Colaboración Efectiva"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-primary">Colaboración Efectiva</h3>
+          <p class="text-base text-center text-gray-600 leading-relaxed">
+            Trabajamos en estrecha colaboración con nuestros clientes,
+            involucrándonos desde las etapas iniciales del proyecto, estableciendo
+            planes de entrega y asegurando una ejecución exitosa.
+          </p>
+        </div>
       </div>
     </div>
   </SectionContainer>
-  <SectionContainer>
-    <p class="text-sm">
-      Nuestro éxito es proporcionar soluciones eficientes y personalizadas para
-      garantizar el suministro oportuno y confiable de materiales de
-      construcción a nuestros clientes.
-    </p>
-    <div class="w-full flex justify-center">
-      <LinkButton href="/contacto" type="secondary">
-        Solicitá mas Información
-      </LinkButton>
-    </div>
-  </SectionContainer>
+
+  <!-- CTA Section -->
+  <div class="bg-gradient-to-b from-white to-primary/5 py-20">
+    <SectionContainer>
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+          Nuestro éxito es proporcionar soluciones eficientes y personalizadas para
+          garantizar el suministro oportuno y confiable de materiales de
+          construcción a nuestros clientes.
+        </p>
+        <div class="pt-4">
+          <LinkButton 
+            href="/contacto" 
+            type="secondary"
+            size="lg"
+          >
+            Solicitá mas Información
+          </LinkButton>
+        </div>
+      </div>
+    </SectionContainer>
+  </div>
 </Layout>
+
+<style>
+  /* Add smooth scrolling to the whole page */
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+</style>

@@ -1,0 +1,47 @@
+[
+  {
+    "nombre": "Arena Taupe",
+    "tipo": "Porcelanato",
+    "medidas": "23x120 cm",
+    "origen": "España",
+    "m2_por_caja": 1.68,
+    "piezas_por_caja": 6,
+    "cajas_por_pallet": 42,
+    "m2_por_pallet": 70.56,
+    "peso_por_pallet_kg": 70.56,
+    "peso_por_caja_kg": 70.56,
+    "detalles_embalaje": "Incluye 6 piezas por caja, cubriendo 1,68 m². Cada pallet contiene 42 cajas, sumando un total de 70,56 m².",
+    "imagen_producto": "/img/productos/porcelanatos/atelier-taupe-producto.jpg",
+    "imagen_ambiente": "/img/productos/porcelanatos/atelier-taupe-ambiente.jpg"
+  },
+  {
+    "nombre": "Gris Urbano",
+    "tipo": "Porcelanato",
+    "medidas": "23x120 cm",
+    "origen": "España",
+    "m2_por_caja": 1.68,
+    "piezas_por_caja": 6,
+    "cajas_por_pallet": 42,
+    "m2_por_pallet": 70.56,
+    "peso_por_pallet_kg": 70.56,
+    "peso_por_caja_kg": 70.56,
+    "detalles_embalaje": "Incluye 6 piezas por caja, cubriendo 1,68 m². Cada pallet contiene 42 cajas, sumando un total de 70,56 m².",
+    "imagen_producto": "/img/productos/porcelanatos/atelier-gris-producto.jpg",
+    "imagen_ambiente": "/img/productos/porcelanatos/atelier-gris-ambiente.jpg"
+  },
+  {
+    "nombre": "Duna Beige",
+    "tipo": "Porcelanato",
+    "medidas": "23x120 cm",
+    "origen": "España",
+    "m2_por_caja": 1.68,
+    "piezas_por_caja": 6,
+    "cajas_por_pallet": 42,
+    "m2_por_pallet": 70.56,
+    "peso_por_pallet_kg": 70.56,
+    "peso_por_caja_kg": 70.56,
+    "detalles_embalaje": "Incluye 6 piezas por caja, cubriendo 1,68 m². Cada pallet contiene 42 cajas, sumando un total de 70,56 m².",
+    "imagen_producto": "/img/productos/porcelanatos/atelier-beige-producto.jpg",
+    "imagen_ambiente": "/img/productos/porcelanatos/atelier-beige-ambiente.jpg"
+  }
+]

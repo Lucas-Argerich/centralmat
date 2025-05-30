@@ -3,49 +3,120 @@ import SectionContainer from '@components/SectionContainer.astro'
 import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
 import Form from '@components/Form.astro'
+
+const contactInfo = {
+  email: 'contacto@centralmat.com.ar',
+  schedule: '09:00 - 17:00 Lunes a Viernes',
+  social: {
+    instagram: {
+      url: 'https://www.instagram.com/centralmatsrl/?hl=es',
+      handle: '@centralmatsrl'
+    },
+    linkedin: {
+      url: 'https://www.linkedin.com/company/centralmat-srl/',
+      handle: 'CENTRAL MAT SRL'
+    }
+  }
+}
 ---
 
 <Layout title="Contacto - CentralMat">
-  <SectionContainer>
-    <div class="w-full flex flex-col gap-5">
-      <Title>PONTE EN CONTACTO</Title>
-      <div>
-        <p>
-          ¡Gracias por visitar nuestra página de contacto! Estamos encantados de
-          ayudarte en lo que necesites.
-        </p>
-        <p>
-          Si tienes alguna consulta, solicitud de
-          cotización o simplemente deseas más información sobre nuestros productos
-          y servicios, no dudes en completar el formulario de contacto a
-          continuación.
-        </p>
-        <p>
-          Nuestro equipo estará encantado de responder tus preguntas
-          y brindarte una atención personalizada.
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Ponte en Contacto</h1>
+        <p class="text-lg md:text-xl opacity-90">
+          Estamos aquí para ayudarte. Envíanos tu consulta y te responderemos a la brevedad.
         </p>
       </div>
     </div>
-    <div class="w-full flex flex-col gap-2.5">  
-      <h3 class="text-[var(--font-size-title)] font-semibold">Formulario de Contacto</h3>
-      <p class="text-[var(--font-size-text)]">Completa el formulario y nos pondremos en contacto contigo lo mas rapido posible.</p>
-      <Form />
-    </div>
-  </SectionContainer>
+  </section>
 
-  <SectionContainer>
-    <div class="flex f-full">
-      <div class="flex-1 flex flex-col gap-4">
-        <h3>Información de Contacto</h3>
-        <p>Correo Electrónico: <a href="mailto:contacto@centralmat.com.ar" target="_blank">contacto@centralmat.com.ar</a></p>
-        <p>Horario de Atención: 09:00 - 17:00 Lunes a Viernes</p>
+  <!-- Main Content -->
+  <SectionContainer class="py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Form Section -->
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-[var(--color-dark)] mb-4">Formulario de Contacto</h2>
+          <p class="text-[var(--font-size-text)] text-gray-600">
+            Completa el formulario y nos pondremos en contacto contigo lo más rápido posible.
+          </p>
+        </div>
+        <Form />
       </div>
-      <div>
-        <h3>Redes Sociales</h3>
-        <p>Síguenos en nuestras redes sociales para estar al tanto de nuestras novedades y promociones:</p>
-        <p>Instagram: <a class="text-[var(--color-dark)]" href="https://www.instagram.com/centralmatsrl/?hl=es" target="_blank">@centralmatsrl</a></p>
-        <p>LinkedIn: <a class="text-[var(--color-dark)]" href="https://www.linkedin.com/company/centralmat-srl/" target="_blank">CENTRAL MAT SRL</a></p>
+
+      <!-- Contact Information Section -->
+      <div class="space-y-8">
+        <!-- Direct Contact Info -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-[var(--color-dark)] mb-6">Información de Contacto</h2>
+          
+          <div class="space-y-6">
+            <div class="border-l-4 border-[var(--color-primary)] pl-4">
+              <h3 class="font-semibold text-[var(--color-dark)] mb-1">Correo Electrónico</h3>
+              <a 
+                href={`mailto:${contactInfo.email}`}
+                class="text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors inline-block"
+                target="_blank"
+              >
+                {contactInfo.email}
+              </a>
+            </div>
+
+            <div class="border-l-4 border-[var(--color-primary)] pl-4">
+              <h3 class="font-semibold text-[var(--color-dark)] mb-1">Horario de Atención</h3>
+              <p class="text-gray-600">{contactInfo.schedule}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-[var(--color-dark)] mb-6">Redes Sociales</h2>
+          <p class="text-gray-600 mb-6">
+            Síguenos en nuestras redes sociales para estar al tanto de nuestras novedades y promociones.
+          </p>
+          
+          <div class="space-y-4">
+            <a 
+              href={contactInfo.social.instagram.url}
+              target="_blank"
+              class="block p-4 rounded-lg border border-gray-200 hover:border-[var(--color-primary)] hover:bg-gray-50 transition-all"
+            >
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-semibold text-[var(--color-dark)]">Instagram</h3>
+                  <p class="text-[var(--color-primary)]">{contactInfo.social.instagram.handle}</p>
+                </div>
+                <span class="text-[var(--color-primary)] font-medium">→</span>
+              </div>
+            </a>
+
+            <a 
+              href={contactInfo.social.linkedin.url}
+              target="_blank"
+              class="block p-4 rounded-lg border border-gray-200 hover:border-[var(--color-primary)] hover:bg-gray-50 transition-all"
+            >
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-semibold text-[var(--color-dark)]">LinkedIn</h3>
+                  <p class="text-[var(--color-primary)]">{contactInfo.social.linkedin.handle}</p>
+                </div>
+                <span class="text-[var(--color-primary)] font-medium">→</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </SectionContainer>
 </Layout>
+
+<style>
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+</style>

@@ -1,0 +1,365 @@
+---
+import { Ruler, Globe, Package, Square, Package2, X } from 'lucide-astro';
+
+interface Props {
+  products: {
+    nombre: string;
+    tipo: string;
+    medidas: string;
+    origen: string;
+    m2_por_caja: number;
+    piezas_por_caja: number;
+    cajas_por_pallet: number;
+    m2_por_pallet: number;
+    peso_por_pallet_kg: number;
+    peso_por_caja_kg: number;
+    detalles_embalaje: string;
+    imagen_producto: string;
+    imagen_ambiente: string;
+  }[];
+}
+
+const { products } = Astro.props;
+---
+
+<div class="relative w-full min-h-screen bg-gradient-to-br from-background to-background-alt flex flex-col lg:flex-row">
+  <!-- Left Preview Bar -->
+  <div class="w-full lg:w-[320px] h-auto bg-background/80 backdrop-blur-sm border-b lg:border-b-0 lg:border-r border-background/20 flex flex-col py-4 lg:py-6 px-4 overflow-x-auto lg:overflow-x-hidden lg:overflow-y-auto scrollbar-hide">
+    <h3 class="text-lg font-semibold text-primary mb-4 px-2">Nuestros Productos</h3>
+    <div class="flex lg:flex-col gap-4 overflow-x-auto lg:overflow-x-hidden pb-4 lg:pb-0">
+      {products.map((product, index) => (
+        <button 
+          class="flex-none lg:flex-1 w-[200px] lg:w-full bg-background/50 hover:bg-background/80 rounded-xl p-2 border border-background/20 transition-all hover:-translate-x-1 text-left group product-preview" 
+          data-index={index}
+          aria-label={`Ver ${product.nombre}`}
+        >
+          <div class="w-full aspect-[4/3] rounded-lg overflow-hidden mb-2 border-2 border-transparent transition-all duration-300 group-hover:border-primary/50 group-[.active]:border-primary group-[.active]:-translate-x-2 group-[.active]:shadow-lg group-[.active]:shadow-primary/20">
+            <img 
+              src={product.imagen_producto} 
+              alt={product.nombre}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="px-2">
+            <span class="block text-sm font-medium text-text group-[.active]:text-primary transition-colors">{product.nombre}</span>
+            <span class="block text-xs text-text-light mt-0.5">{product.tipo}</span>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 h-full overflow-y-auto">
+    {products.map((product, index) => (
+      <div 
+        class="w-full h-fit flex justify-center p-4 sm:p-6 lg:p-8 product-content transition-opacity duration-300" 
+        data-index={index}
+        style="display: none; opacity: 0;"
+      >
+        <div class="w-full max-w-[1600px] bg-background/95 backdrop-blur-sm rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl shadow-background/20 flex flex-col gap-6 lg:gap-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-background/20">
+            <div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary m-0">{product.nombre}</h2>
+              <p class="text-text-light mt-1">{product.medidas}</p>
+            </div>
+            <div class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm lg:text-base font-medium w-fit">
+              {product.tipo}
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-8">
+            <div class="grid grid-rows-[1fr_1fr] lg:grid-rows-[2fr_1fr] gap-4">
+              <div class="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer main-image aspect-[4/3] lg:aspect-auto" data-product={product.imagen_producto} data-ambiente={product.imagen_ambiente}>
+                <img 
+                  src={product.imagen_ambiente} 
+                  alt={`${product.nombre} - Vista en ambiente`}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="absolute bottom-0 left-0 right-0 p-4 lg:p-6 text-white">
+                    <span class="text-sm font-medium">Click para ver en grande</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer secondary-image aspect-[4/3] lg:aspect-auto" data-product={product.imagen_producto} data-ambiente={product.imagen_ambiente}>
+                <img 
+                  src={product.imagen_producto} 
+                  alt={`${product.nombre} - Vista del producto`}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="absolute bottom-0 left-0 right-0 p-4 lg:p-6 text-white">
+                    <span class="text-sm font-medium">Click para ver en grande</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-6 lg:gap-8">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-background/50 backdrop-blur-sm p-4 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 group">
+                  <div class="bg-primary/10 text-primary w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                    <Ruler class="w-5 h-5 lg:w-6 lg:h-6" />
+                  </div>
+                  <div>
+                    <h4 class="text-sm text-text-light m-0">Medidas</h4>
+                    <p class="text-base lg:text-lg font-medium text-text mt-0.5">{product.medidas}</p>
+                  </div>
+                </div>
+                <div class="bg-background/50 backdrop-blur-sm p-4 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 group">
+                  <div class="bg-primary/10 text-primary w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                    <Globe class="w-5 h-5 lg:w-6 lg:h-6" />
+                  </div>
+                  <div>
+                    <h4 class="text-sm text-text-light m-0">Origen</h4>
+                    <p class="text-base lg:text-lg font-medium text-text mt-0.5">{product.origen}</p>
+                  </div>
+                </div>
+                <div class="bg-background/50 backdrop-blur-sm p-4 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 group">
+                  <div class="bg-primary/10 text-primary w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                    <Package class="w-5 h-5 lg:w-6 lg:h-6" />
+                  </div>
+                  <div>
+                    <h4 class="text-sm text-text-light m-0">Piezas por Caja</h4>
+                    <p class="text-base lg:text-lg font-medium text-text mt-0.5">{product.piezas_por_caja} unidades</p>
+                  </div>
+                </div>
+                <div class="bg-background/50 backdrop-blur-sm p-4 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 group">
+                  <div class="bg-primary/10 text-primary w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                    <Square class="w-5 h-5 lg:w-6 lg:h-6" />
+                  </div>
+                  <div>
+                    <h4 class="text-sm text-text-light m-0">m² por Caja</h4>
+                    <p class="text-base lg:text-lg font-medium text-text mt-0.5">{product.m2_por_caja} m²</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-background/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl">
+                <h3 class="text-lg sm:text-xl text-primary m-0 mb-4 flex items-center gap-2">
+                  <Package2 class="w-5 h-5 lg:w-6 lg:h-6" />
+                  Información de Embalaje
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div class="bg-background/30 p-3 rounded-xl">
+                    <span class="text-sm text-text-light">Cajas por Pallet</span>
+                    <span class="block text-base lg:text-lg font-medium text-text mt-1">{product.cajas_por_pallet}</span>
+                  </div>
+                  <div class="bg-background/30 p-3 rounded-xl">
+                    <span class="text-sm text-text-light">m² por Pallet</span>
+                    <span class="block text-base lg:text-lg font-medium text-text mt-1">{product.m2_por_pallet} m²</span>
+                  </div>
+                  <div class="bg-background/30 p-3 rounded-xl">
+                    <span class="text-sm text-text-light">Peso por Pallet</span>
+                    <span class="block text-base lg:text-lg font-medium text-text mt-1">{product.peso_por_pallet_kg} kg</span>
+                  </div>
+                  <div class="bg-background/30 p-3 rounded-xl">
+                    <span class="text-sm text-text-light">Peso por Caja</span>
+                    <span class="block text-base lg:text-lg font-medium text-text mt-1">{product.peso_por_caja_kg} kg</span>
+                  </div>
+                </div>
+                <p class="text-sm lg:text-base leading-relaxed text-text mt-4 pt-4 border-t border-background/20">
+                  {product.detalles_embalaje}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <button class="absolute top-4 right-4 text-white hover:text-primary transition-colors" id="closeModal">
+      <X class="w-6 h-6 sm:w-8 sm:h-8" />
+    </button>
+    <div class="w-full max-w-[90vw] max-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="relative aspect-[4/3] rounded-lg overflow-hidden">
+        <img id="modalProductImage" src="" alt="Producto" class="w-full h-full object-contain" />
+        <div class="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+          Vista del Producto
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] rounded-lg overflow-hidden">
+        <img id="modalAmbienteImage" src="" alt="Ambiente" class="w-full h-full object-contain" />
+        <div class="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+          Vista en Ambiente
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom scrollbar styles */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom scrollbar for details section */
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 4px;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+  }
+
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .w-[320px] {
+      width: 240px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .w-[320px] {
+      width: 200px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-preview {
+      min-width: 160px;
+    }
+  }
+</style>
+
+<script>
+  class ProductGallery {
+    private previewItems: NodeListOf<HTMLElement>;
+    private contentItems: NodeListOf<HTMLElement>;
+    private modal: HTMLElement;
+    private modalProductImage: HTMLImageElement;
+    private modalAmbienteImage: HTMLImageElement;
+    private closeModalButton: HTMLElement;
+    private currentIndex: number = 0;
+
+    constructor() {
+      this.previewItems = document.querySelectorAll('.product-preview');
+      this.contentItems = document.querySelectorAll('.product-content');
+      this.modal = document.getElementById('imageModal') as HTMLElement;
+      this.modalProductImage = document.getElementById('modalProductImage') as HTMLImageElement;
+      this.modalAmbienteImage = document.getElementById('modalAmbienteImage') as HTMLImageElement;
+      this.closeModalButton = document.getElementById('closeModal') as HTMLElement;
+
+      this.init();
+    }
+
+    private init() {
+      // Initialize preview items
+      this.previewItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          this.showProduct(index);
+        });
+      });
+
+      // Initialize image click handlers
+      this.contentItems.forEach((content) => {
+        const mainImage = content.querySelector('.main-image') as HTMLElement;
+        const secondaryImage = content.querySelector('.secondary-image') as HTMLElement;
+        
+        if (mainImage) {
+          mainImage.addEventListener('click', () => this.openModal(mainImage));
+        }
+        if (secondaryImage) {
+          secondaryImage.addEventListener('click', () => this.openModal(secondaryImage));
+        }
+      });
+
+      // Initialize modal close button
+      this.closeModalButton.addEventListener('click', () => this.closeModal());
+
+      // Close modal on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          this.closeModal();
+        }
+      });
+
+      // Close modal on click outside
+      this.modal.addEventListener('click', (e) => {
+        if (e.target === this.modal) {
+          this.closeModal();
+        }
+      });
+
+      // Show first product by default
+      this.showProduct(0);
+    }
+
+    private openModal(imageContainer: HTMLElement) {
+      const productImage = imageContainer.getAttribute('data-product');
+      const ambienteImage = imageContainer.getAttribute('data-ambiente');
+
+      if (productImage && ambienteImage) {
+        this.modalProductImage.src = productImage;
+        this.modalAmbienteImage.src = ambienteImage;
+        this.modal.classList.remove('hidden');
+        this.modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    private closeModal() {
+      this.modal.classList.add('hidden');
+      this.modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    private showProduct(index: number) {
+      // Hide all content items
+      this.contentItems.forEach((item) => {
+        item.style.display = 'none';
+        item.style.opacity = '0';
+      });
+
+      // Show selected content item with animation
+      const selectedContent = this.contentItems[index];
+      if (selectedContent) {
+        selectedContent.style.display = 'flex';
+        // Trigger reflow
+        selectedContent.offsetHeight;
+        selectedContent.style.opacity = '1';
+      }
+
+      // Update preview items
+      this.previewItems.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+        
+        // Scroll preview item into view if it's active
+        if (i === index) {
+          item.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+          });
+        }
+      });
+
+      this.currentIndex = index;
+    }
+  }
+
+  // Initialize gallery when the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ProductGallery();
+  });
+</script> 

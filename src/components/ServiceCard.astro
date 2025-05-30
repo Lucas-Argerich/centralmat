@@ -1,0 +1,106 @@
+---
+interface Props {
+  title: string
+  description: string
+  icon: string
+  alt: string
+}
+
+const { title, description, icon, alt } = Astro.props
+---
+
+<div class="group relative flex flex-col items-center gap-6 p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex-[1_0_100%] md:flex-[0_0_calc(50%-40px)] lg:flex-[0_0_calc(25%-40px)] overflow-hidden">
+  <!-- Background gradient effect -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  
+  <!-- Icon container with animated border -->
+  <div class="relative">
+    <div class="absolute inset-0 rounded-full bg-[var(--color-primary)]/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+    <div class="relative p-4 rounded-full bg-white shadow-md group-hover:shadow-lg transition-all duration-300">
+      <div class="w-16 h-16 flex items-center justify-center">
+        <svg 
+          class="w-10 h-10 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="1.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+        >
+          {icon === 'logistics' && (
+            <>
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </>
+          )}
+          {icon === 'delivery' && (
+            <>
+              <rect x="1" y="3" width="15" height="13" />
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </>
+          )}
+          {icon === 'support' && (
+            <>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M9 12l2 2 4-4" />
+            </>
+          )}
+          {icon === 'collaboration' && (
+            <>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </>
+          )}
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative flex flex-col items-center gap-4 text-center">
+    <h3 class="text-xl font-semibold text-[var(--color-primary)] group-hover:text-[var(--color-primary-dark)] transition-colors duration-300">
+      {title}
+    </h3>
+    <div class="w-12 h-0.5 bg-[var(--color-primary)]/20 group-hover:bg-[var(--color-primary)]/40 transition-colors duration-300"></div>
+    <p class="text-gray-600 leading-relaxed">
+      {description}
+    </p>
+  </div>
+
+  <!-- Hover effect overlay -->
+  <div class="absolute inset-0 border-2 border-[var(--color-primary)]/0 group-hover:border-[var(--color-primary)]/10 rounded-xl transition-colors duration-300"></div>
+</div>
+
+<style>
+  /* Add a subtle scale effect on hover */
+  .group:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Add a shine effect */
+  .group::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.5s;
+  }
+  
+  .group:hover::after {
+    left: 150%;
+  }
+</style> 

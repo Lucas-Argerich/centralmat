@@ -4,98 +4,186 @@ import LinkButton from '@components/LinkButton.astro'
 import SectionContainer from '@components/SectionContainer.astro'
 import Title from '@components/Title.astro'
 import Layout from '@layouts/Layout.astro'
+import { Globe, Star, Handshake, Target, Eye } from 'lucide-astro'
 ---
 
 <Layout title="Nosotros - CentralMat">
   <Hero
-    height="380px"
+    height="500px"
     src="/img/pexels-marc-mueller-380768.jpg"
     placeholder="/img/pexels-marc-mueller-380768small.jpg"
   >
-    <img class="size-40 bg-[var(--color-light)] rounded-full inset-shadow-[0_0_0_8px_var(--color-primary),0_4px_8px_0_var(--color-dark-25)]" src="/img/logo2.png" alt="Logo de CentralMat" />
-    <h1 class="text-[var(--color-light)] text-lg font-bold text-center max-w-[400px]">TU SOCIO CONFIABLE EN MATERIALES DE CONSTRUCCIÓN</h1>
-    <div class="text-[var(--color-light)] text-sm text-center font-normal mx-5">
-      <p>
-        En CentralMat nos dedicamos a ofrecer soluciones integrales y servicios
-        de calidad en el suministro de materiales de construcción.
-      </p>
-      <p>
-        Nuestro compromiso es brindar a nuestros clientes un servicio confiable,
-        eficiente y personalizado que supere sus expectativas.
-      </p>
+    <div class="flex flex-col items-center gap-6 max-w-3xl mx-auto px-4">
+      <img 
+        class="size-32 bg-[var(--color-light)] rounded-full p-2 shadow-[0_0_0_8px_var(--color-primary),0_4px_8px_0_var(--color-dark-25)] hover:scale-105 transition-transform duration-300" 
+        src="/img/logo2.png" 
+        alt="Logo de CentralMat" 
+      />
+      <h1 class="text-[var(--color-light)] text-3xl md:text-4xl font-bold text-center leading-tight text-shadow-[0_0_4px_var(--color-dark)]">
+        Tu Socio Confiable en Materiales de Construcción
+      </h1>
+      <div class="text-[var(--color-light)] text-base md:text-lg text-center font-normal max-w-2xl">
+        <p class="mb-4">
+          En CentralMat nos dedicamos a ofrecer soluciones integrales y servicios
+          de calidad en el suministro de materiales de construcción.
+        </p>
+        <p>
+          Nuestro compromiso es brindar a nuestros clientes un servicio confiable,
+          eficiente y personalizado que supere sus expectativas.
+        </p>
+      </div>
     </div>
   </Hero>
+
   <SectionContainer>
-    <Title>SOBRE NOSOTROS</Title>
-    <div class="flex flex-col gap-6">
-      <h3>¡Bienvenido a CentralMat!</h3>
-      <p>
-        En CentralMat, nos enorgullece presentarnos como un equipo de
-        profesionales con una amplia experiencia en el rubro de materiales de
-        construcción, tanto a nivel nacional como internacional. Con muchos años
-        en el mercado, hemos establecido una sólida trayectoria en el
-        abastecimiento a edificios y constructoras de todo el país.
-      </p>
-      <p>
-        Nuestro equipo cuenta con una valiosa experiencia en el mercado
-        internacional, habiendo participado activamente en importaciones y
-        exportaciones. Estamos al tanto de las últimas tendencias y avances en
-        el sector, manteniéndonos actualizados a través de la participación en
-        ferias y eventos sectoriales tanto a nivel mundial como en Argentina.
-      </p>
-      <p>
-        En CentralMat, entendemos las necesidades y desafíos que enfrentan
-        nuestros clientes en la industria de la construcción. Por eso, nos
-        esforzamos por ofrecerles productos de alta calidad, garantizando la
-        satisfacción de sus demandas y cumpliendo con los estándares más
-        exigentes.
-      </p>
-      <p>
-        Nos destacamos por nuestra amplia gama de materiales de construcción,
-        que incluyen productos tanto nacionales como importados. Nuestro
-        objetivo es brindar a nuestros clientes soluciones integrales, adaptadas
-        a sus proyectos y presupuestos.
-      </p>
-      <p>
-        Además de nuestra dedicación a la calidad de los productos, en
-        CentralMat también nos enfocamos en proporcionar un excelente servicio
-        al cliente. Nuestro equipo está aquí para asesorarte, responder a tus
-        preguntas y asegurarnos de que encuentres los materiales adecuados para
-        tu proyecto.
-      </p>
-      <p>
-        Gracias por elegir a CentralMat como tu proveedor de confianza en
-        materiales de construcción. Esperamos poder acompañarte en cada etapa de
-        tu proyecto y brindarte la calidad y el servicio que mereces.
-      </p>
+    <div class="max-w-4xl mx-auto">
+      <Title>Nuestra Historia</Title>
+      <div class="prose prose-lg max-w-none my-16">
+        <p class="text-lg leading-relaxed mb-6">
+          En CentralMat, nos enorgullece presentarnos como un equipo de
+          profesionales con una amplia experiencia en el rubro de materiales de
+          construcción, tanto a nivel nacional como internacional. Con muchos años
+          en el mercado, hemos establecido una sólida trayectoria en el
+          abastecimiento a edificios y constructoras de todo el país.
+        </p>
+      </div>
+
+      <!-- Values Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
+        <div class="bg-[var(--color-light)] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="text-[var(--color-primary)] mb-4">
+            <Globe class="w-12 h-12" stroke-width="1.5" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Experiencia Global</h3>
+          <p class="text-[var(--color-dark-75)]">
+            Participación activa en importaciones y exportaciones, manteniéndonos actualizados con las últimas tendencias mundiales.
+          </p>
+        </div>
+        <div class="bg-[var(--color-light)] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="text-[var(--color-primary)] mb-4">
+            <Star class="w-12 h-12" stroke-width="1.5" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Calidad Garantizada</h3>
+          <p class="text-[var(--color-dark-75)]">
+            Productos de alta calidad que cumplen con los estándares más exigentes del mercado.
+          </p>
+        </div>
+        <div class="bg-[var(--color-light)] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="text-[var(--color-primary)] mb-4">
+            <Handshake class="w-12 h-12" stroke-width="1.5" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Servicio Personalizado</h3>
+          <p class="text-[var(--color-dark-75)]">
+            Atención personalizada y asesoramiento experto para cada proyecto.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mission & Vision Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
+        <!-- Mission Card -->
+        <div class="group relative overflow-hidden bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-primary)] to-[#e67e22] p-8 rounded-lg text-white transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+          <!-- Background Pattern -->
+          <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)]"></div>
+          </div>
+          
+          <!-- Content -->
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-white/10 rounded-lg backdrop-blur-sm group-hover:bg-[var(--color-primary-light)]/20 transition-colors duration-300">
+                <Target class="w-8 h-8 text-[var(--color-primary-light)]" stroke-width="1.5" />
+              </div>
+              <h3 class="text-2xl font-bold text-[var(--color-primary-light)]">Nuestra Misión</h3>
+            </div>
+            <div class="space-y-4">
+              <p class="leading-relaxed text-white/90">
+                Ser el principal proveedor de soluciones de abastecimiento de materiales de construcción, 
+                trabajando en estrecha colaboración con nuestros clientes para satisfacer sus necesidades 
+                y contribuir al éxito de sus proyectos.
+              </p>
+              <ul class="space-y-2 text-sm text-[var(--color-primary-light)]/90">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary-light)]"></span>
+                  Productos y servicios de calidad superior
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary-light)]"></span>
+                  Precios altamente competitivos
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary-light)]"></span>
+                  Logística eficiente y confiable
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Decorative Elements -->
+          <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-[var(--color-primary-light)]/10 rounded-full blur-2xl group-hover:bg-[var(--color-primary-light)]/20 transition-colors duration-500"></div>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="group relative overflow-hidden bg-gradient-to-br from-[var(--color-secondary)] via-[var(--color-secondary)] to-[#1a3670] p-8 rounded-lg text-white transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+          <!-- Background Pattern -->
+          <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)]"></div>
+          </div>
+          
+          <!-- Content -->
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-white/10 rounded-lg backdrop-blur-sm group-hover:bg-[var(--color-secondary-light)]/20 transition-colors duration-300">
+                <Eye class="w-8 h-8 text-[var(--color-secondary-light)]" stroke-width="1.5" />
+              </div>
+              <h3 class="text-2xl font-bold text-[var(--color-secondary-light)]">Nuestra Visión</h3>
+            </div>
+            <div class="space-y-4">
+              <p class="leading-relaxed text-white/90">
+                Ser reconocidos como el socio estratégico y confiable en la industria de la construcción, 
+                siendo líderes en la provisión de materiales de calidad y soluciones adaptadas a cada proyecto.
+              </p>
+              <ul class="space-y-2 text-sm text-[var(--color-secondary-light)]/90">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary-light)]"></span>
+                  Innovación y mejora continua
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary-light)]"></span>
+                  Asistencia técnica capacitada
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary-light)]"></span>
+                  Soluciones personalizadas
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Decorative Elements -->
+          <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-[var(--color-secondary-light)]/10 rounded-full blur-2xl group-hover:bg-[var(--color-secondary-light)]/20 transition-colors duration-500"></div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="text-center my-16">
+        <h3 class="text-2xl font-bold mb-6">¿Listo para comenzar tu proyecto?</h3>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <LinkButton href="/productos" type="primary">
+            Ver Nuestros Productos
+          </LinkButton>
+          <LinkButton href="/contacto" type="secondary">
+            Contactar con Nosotros
+          </LinkButton>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-col gap-6 border-t border-t-[var(--color-dark-25)] pt-20 pb-7.5">
-      <h3 class="text-lg font-semibold">Nuestra Misión</h3>
-      <p>
-        En Central Mat nuestra misión es ser el principal proveedor de
-        soluciones de abastecimiento de materiales de construcción, trabajando
-        en estrecha colaboración con nuestros clientes para satisfacer sus
-        necesidades y contribuir al éxito de sus proyectos. Nos esforzamos por
-        ofrecer productos y servicios de calidad superior, precios altamente
-        competitivos y una logística eficiente, mientras mantenemos una relación
-        duradera basada en la confianza mutua.
-      </p>
-    </div>
-    <div class="flex flex-col gap-6 border-t border-t-[var(--color-dark-25)] pt-20 pb-7.5">
-      <h3 class="text-lg font-semibold">Nuestra Visión</h3>
-      <p>
-        Nuestra visión es ser reconocidos como el socio estratégico y confiable
-        en la industria de la construcción, siendo líderes en la provisión de
-        materiales de calidad y soluciones adaptadas a cada proyecto. Buscamos
-        constantemente la innovación y la mejora continua para satisfacer las
-        necesidades cambiantes de nuestros clientes, brindando asistencia
-        técnica capacitada y personalizada. Trabajamos juntos con nuestros
-        clientes para construir con éxito y excelencia, siendo la opción
-        preferida en el abastecimiento de materiales para obras y proyectos.
-      </p>
-    </div>
-    <LinkButton href="/productos" type="secondary">
-      Nuestros Productos
-    </LinkButton>
   </SectionContainer>
 </Layout>
+
+<style>
+  .prose {
+    --tw-prose-body: var(--color-dark-75);
+    --tw-prose-headings: var(--color-dark);
+  }
+</style>

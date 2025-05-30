@@ -1,12 +1,179 @@
 ---
 interface Props {
   subtitle?: string
+  align?: 'left' | 'center' | 'right'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  variant?: 'default' | 'primary' | 'secondary'
+  accent?: boolean
+  icon?: string
+  iconPosition?: 'left' | 'right'
+  weight?: 'normal' | 'medium' | 'semibold' | 'bold'
+  uppercase?: boolean
+  class?: string
 }
 
-const { subtitle } = Astro.props
+const { 
+  subtitle,
+  align = 'center',
+  size = 'md',
+  variant = 'default',
+  accent = false,
+  icon,
+  iconPosition = 'left',
+  weight = 'bold',
+  uppercase = true,
+  class: className = ''
+} = Astro.props
+
+const alignStyles = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right'
+}
+
+const weightStyles = {
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold'
+}
+
+const sizeStyles = {
+  sm: {
+    title: 'text-lg tracking-tight',
+    subtitle: 'text-sm tracking-normal'
+  },
+  md: {
+    title: 'text-xl md:text-2xl tracking-tight',
+    subtitle: 'text-base tracking-normal'
+  },
+  lg: {
+    title: 'text-2xl md:text-3xl tracking-tight',
+    subtitle: 'text-lg tracking-normal'
+  },
+  xl: {
+    title: 'text-3xl md:text-4xl lg:text-5xl tracking-tight',
+    subtitle: 'text-xl tracking-normal'
+  },
+  '2xl': {
+    title: 'text-4xl md:text-5xl lg:text-6xl tracking-tighter',
+    subtitle: 'text-2xl tracking-normal'
+  }
+}
+
+const variantStyles = {
+  default: {
+    title: 'text-[var(--color-secondary)]',
+    subtitle: 'text-gray-600'
+  },
+  primary: {
+    title: 'text-[var(--color-primary)]',
+    subtitle: 'text-[var(--color-primary)]/80'
+  },
+  secondary: {
+    title: 'text-[var(--color-secondary)]',
+    subtitle: 'text-[var(--color-secondary)]/80'
+  }
+}
+
+const containerClass = `
+  flex flex-col gap-3
+  ${alignStyles[align]}
+  ${className}
+`
+
+const titleClass = `
+  ${weightStyles[weight]}
+  ${sizeStyles[size].title}
+  ${variantStyles[variant].title}
+  ${uppercase ? 'uppercase' : ''}
+  ${accent ? 'relative inline-block' : ''}
+  leading-tight
+  font-quicksand
+  tracking-wide
+`
+
+const subtitleClass = `
+  font-normal
+  ${sizeStyles[size].subtitle}
+  ${variantStyles[variant].subtitle}
+  max-w-2xl mx-auto
+  leading-relaxed
+  font-sans
+`
 ---
 
-<div class="flex flex-col gap-2.5 w-fit">
-  <h2 class="text-[var(--color-secondary)] text-lg font-bold text-center"><slot /></h2>
-  { subtitle !== undefined && <span class="text-center">{subtitle}</span> }
+<div class={containerClass}>
+  <div class="flex items-center gap-3 justify-center">
+    {icon && iconPosition === 'left' && (
+      <img src={icon} alt="" class="w-6 h-6" aria-hidden="true" />
+    )}
+    <h2 class={titleClass}>
+      <span class="relative inline-block">
+        <slot />
+        {accent && (
+          <span class="absolute -bottom-2 left-0 w-full h-1 bg-[var(--color-primary)] rounded-full transform origin-left scale-x-75"></span>
+        )}
+      </span>
+    </h2>
+    {icon && iconPosition === 'right' && (
+      <img src={icon} alt="" class="w-6 h-6" aria-hidden="true" />
+    )}
+  </div>
+  {subtitle && (
+    <p class={subtitleClass}>
+      {subtitle}
+    </p>
+  )}
 </div>
+
+<style>
+  /* Import Quicksand font */
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+  /* Add font family */
+  :global(.font-quicksand) {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  /* Add a subtle animation for the accent line */
+  h2:has(span) {
+    transition: all 0.3s ease;
+  }
+  
+  h2:has(span):hover {
+    transform: translateY(-1px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2:has(span):hover span span {
+    animation: accentLine 0.3s ease forwards;
+  }
+  
+  @keyframes accentLine {
+    from {
+      transform: scaleX(0.75);
+      opacity: 0.7;
+    }
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  /* Add font smoothing */
+  h2, p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Add text shadow for better contrast on certain backgrounds */
+  h2 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Add letter spacing animation on hover */
+  h2:hover {
+    letter-spacing: 0.05em;
+  }
+</style>

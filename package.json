@@ -11,10 +11,12 @@
     "eslint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^6.0.0",
+    "@astrojs/check": "^0.9.4",
     "@emailjs/browser": "^3.12.1",
-    "@tailwindcss/vite": "^4.0.4",
-    "astro": "^5.2.0",
+    "@tailwindcss/vite": "^4.1.8",
+    "astro": "^5.8.1",
+    "centralmat": "file:",
+    "lucide-astro": "^0.511.0",
     "tailwindcss": "^4.0.4"
   },
   "devDependencies": {

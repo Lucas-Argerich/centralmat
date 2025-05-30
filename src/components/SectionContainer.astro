@@ -1,6 +1,11 @@
 ---
+interface Props {
+  class?: string
+}
+
+const { class: className = '' } = Astro.props
 ---
 
-<section class="flex flex-col items-center gap-12.5 my-12.5 px-5 md:px-25">
+<section class={`flex flex-col items-center gap-12.5 my-12.5 px-5 md:px-25 ${className}`}>
   <slot />
 </section>
